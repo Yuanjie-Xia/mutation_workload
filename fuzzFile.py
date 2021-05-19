@@ -71,7 +71,7 @@ def load_file(log_address, perf_address, period_size,start_time):
                 i = i + 1
 
             time_interval = int(element_perf[0]) - start_time
-            time_period = math.floor(time_interval / period_size)
+            time_period = math.floor(time_interval / (period_size * 3))
             cpu = float(element_perf[6])
             rss = float(element_perf[11])
             memory = float(element_perf[12])
@@ -105,7 +105,7 @@ def load_file(log_address, perf_address, period_size,start_time):
            #print(current_time)
            duration = (current_time - transfer_start_time).total_seconds()
            # Designed as the pidstat run after jmeter start
-           time_period = int(duration / period_size) + 1
+           time_period = int(duration / (3 * period_size)) + 1
            #print(time_period)
            if time_period > 6:
                break
@@ -304,6 +304,7 @@ def analysis_data(logFileAdd, perfFileAdd, workload_store, looptime):
     mutate_workload = mutation(workload4run)
     return workload_store, mutate_workload
 
+
 def initial_create(loopingtime):
     s = [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500]
     print(s)
@@ -335,6 +336,7 @@ def initial_create(loopingtime):
     file_write.writelines(data)
     file_write = open(file_name, "w")
     file_write.writelines(data)
+
 
 def create_jmx_file(f_workload, loopingtime):
     s1 = round(30000 / f_workload['DELETE_URL2'])
@@ -462,7 +464,7 @@ def main():
         today = date.today()
         today = str(today)
         jmeter_function(jmx_file_name)
-        sleep(3)
+        sleep(2)
         pidstat_function(loop_time)
         sleep(190)
         os.system('pkill screen')
