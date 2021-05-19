@@ -376,6 +376,8 @@ def create_jmx_file(f_workload, loopingtime):
     temp = s[rng5]
     s[rng5] = s[rng6]
     s[rng6] = s[rng5]
+
+    s = s + s + s
     #if loopingtime==0:
     #   s = [200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200]
     print(s)
