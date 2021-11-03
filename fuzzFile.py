@@ -362,7 +362,7 @@ def create_jmx_file(f_workload, loopingtime):
         sk1[index] = random.randint(50,5000)
     sk2 = np.concatenate((sk0,sk0,sk0,sk0,sk0,sk0))
     sk3 = np.concatenate((sk1,sk1,sk1,sk1,sk1,sk1))
-    #s = np.concatenate((sk2,sk3))
+    s = np.concatenate((sk2,sk3))
     #print(sk3)
     #print(s)
 
@@ -392,8 +392,7 @@ def create_jmx_file(f_workload, loopingtime):
     #sk3[rng6] = r6
     #sk3[rng7] = r7
     #sk3[rng8] = r8
-    
-<<<<<<< HEAD
+
     rng5 = random.randint(0, round((len(s)-1)/2))
     rng6 = random.randint(round((len(s)-1)/2)+1, len(s)-1)
     temp = s[rng5]
@@ -401,7 +400,6 @@ def create_jmx_file(f_workload, loopingtime):
     s[rng6] = s[rng5]
 
     s = s + 1
-=======
     s = np.concatenate((sk2,sk3))
     #rng9 = random.randint(0, round((len(s)-1)/2))
     #rng10 = random.randint(round((len(s)-1)/2)+1, len(s)-1)
@@ -410,7 +408,6 @@ def create_jmx_file(f_workload, loopingtime):
     #s[rng10] = temp
 
     #s = np.concatenate((s, s, s))
->>>>>>> a23a0278c989158be818a845d5280c50f12b8ac6
     #if loopingtime==0:
     #   s = [200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200]
     print(s)
