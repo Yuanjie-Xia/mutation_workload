@@ -44,6 +44,7 @@ def transfer2type(action, url):
             url = "POST_URL1"
         else:
             url = "POST_URL9"
+            #print(url)
 
     if action == "DELETE":
         url = "DELETE_URL2"
@@ -71,11 +72,13 @@ def load_file(log_address, perf_address, period_size,start_time):
                 i = i + 1
 
             time_interval = int(element_perf[0]) - start_time
-            time_period = math.floor(time_interval / (period_size * 3))
+            time_period = math.floor(time_interval / (period_size * 3))+1
+            time_round = math.floor(time_interval / (period_size))+1
             cpu = float(element_perf[6])
             rss = float(element_perf[11])
             memory = float(element_perf[12])
-            split_list.append([time_period, cpu, rss, memory])
+            if time_round%3==1:
+               split_list.append([time_period, cpu, rss, memory])
 
     perf = pd.DataFrame(split_list, columns=['time_period', 'cpu', 'rss', 'memory'])
     #print(perf)
@@ -105,9 +108,9 @@ def load_file(log_address, perf_address, period_size,start_time):
            #print(current_time)
            duration = (current_time - transfer_start_time).total_seconds()
            # Designed as the pidstat run after jmeter start
-           time_period = int(duration / (3 * period_size)) + 1
+           time_period = math.floor(duration / (3 * period_size)) + 1
            #print(time_period)
-           if time_period > 6:
+           if time_period > 12:
                break
            if time_period < 1:
                continue
@@ -199,6 +202,7 @@ def measure_s(signature, perf):
     #print(signature[['time_period', 'stability']])
     signature['stability'] = signature['pvalue'].rank(pct=True) * signature['size'].rank(pct=True) 
     signature['stability'] = 1 - signature['stability'].rank(pct=True)
+    signature.loc[signature['size']==1,'stability'] = 1
     return signature
 
 
@@ -238,7 +242,7 @@ def measure_d(workload_store, signature, loop_time):
         for i in range(0, len(signature)):
             corr = []
             for k in range(0, len(workload_store)):
-                distance = 1 - spatial.distance.euclidean(workload_store[k:k+1], workload[i:i + 1])
+                distance = 1-spatial.distance.euclidean(workload_store[k:k+1], workload[i:i + 1])
                 corr.append(distance)
             
             if max(corr)-min(corr) > 0:
@@ -247,7 +251,7 @@ def measure_d(workload_store, signature, loop_time):
             else: max_corr = 0
             maxcorr.append(max_corr)
         
-        rm_dimention_corr = (maxcorr - min(maxcorr))/(max(maxcorr)-min(maxcorr))
+        rm_dimention_corr = 1 - (maxcorr - min(maxcorr))/(max(maxcorr)-min(maxcorr))
         #print(rm_dimention_corr)
         signature['diversity'] = rm_dimention_corr
 
@@ -277,24 +281,27 @@ def analysis_data(logFileAdd, perfFileAdd, workload_store, looptime):
     workload_signature, performance_data = load_file(logFileAdd, perfFileAdd, 30, 0)
     #print(workload_signature)
     #print(performance_data)
-    performance_data.to_csv('perf'+ str(looptime)  + '.csv', index=False)
+    performance_data.to_csv('~/performance/perf'+ str(looptime)  + '.csv', index=False)
     workload_signature, workload = generate_workload(workload_signature)
     #print(workload_signature)
     workload_signature = workload_signature[['DELETE_URL2204', 'GET_URL3200', 'GET_URL4200', 'GET_URL5200', 'GET_URL6200', 'GET_URL7200', 'GET_URL8200', 'POST_URL9200']]
     workload_signature = hierarchical_clustering(workload_signature)
-    #print('cluster detail:')
+    print('cluster detail:')
     print(workload_signature)
-    workload_signature.to_csv('~/clusterData' + str(looptime)  + '.csv', index=False)
+    workload_signature.to_csv('~/clusterData/clusterData' + str(looptime)  + '.csv', index=False)
     stability_value = measure_s(workload_signature, performance_data)
+    #print(stability_value)
     diversity_value, workload_store = measure_d(workload_store, workload, looptime)
     diversity_value = diversity_value.reset_index()
+    #print(diversity_value)
     stability_value['diversity'] = diversity_value['diversity'].to_numpy()
     stability_value['measurement'] = abs(stability_value['diversity']) + abs(stability_value['stability'])
-    stability_value.to_csv('evaluate' + str(looptime) + '.csv', index=False)
+    stability_value.to_csv('~/clusterData/evaluate' + str(looptime) + '.csv', index=False)
     print('evaluate detail:')
     print(stability_value)
-    selection_df = stability_value.sort_values(by=['measurement'], ascending=True)
+    selection_df = stability_value.sort_values(by=['measurement'], ascending=False)
     selected_workload = selection_df[0:2]
+    print(selected_workload)
     #selected_workload = selected_workload.reset_index()
     selected_time = selected_workload['time_period'].to_numpy()
     workload = workload.reset_index()
@@ -347,30 +354,46 @@ def create_jmx_file(f_workload, loopingtime):
     s6 = round(30000 / f_workload['GET_URL4'])
     s7 = round(30000 / f_workload['GET_URL6'])
     s8 = round(30000 / f_workload['POST_URL9'])
-    s = np.concatenate((s1[0:1], s2[0:1], s3[0:1], s4[0:1], s5[0:1], s6[0:1], s7[0:1], s8[0:1], s1[1:2]
-                        , s2[1:2], s3[1:2], s4[1:2], s5[1:2], s6[1:2], s7[1:2], s8[1:2]))
+    sk0 = np.concatenate((s1[0:1], s2[0:1], s3[0:1], s4[0:1], s5[0:1], s6[0:1], s7[0:1], s8[0:1]))
+    sk1 = np.concatenate((s1[1:2], s2[1:2], s3[1:2], s4[1:2], s5[1:2], s6[1:2], s7[1:2], s8[1:2]))
+    for index, element in enumerate(sk0):
+        sk0[index] = random.randint(50,5000)
+    for index, element in enumerate(sk1):
+        sk1[index] = random.randint(50,5000)
+    sk2 = np.concatenate((sk0,sk0,sk0,sk0,sk0,sk0))
+    sk3 = np.concatenate((sk1,sk1,sk1,sk1,sk1,sk1))
+    #s = np.concatenate((sk2,sk3))
+    #print(sk3)
     #print(s)
-    for index, element in enumerate(s):
-        if element > 3000:
-           s[index] = random.randint(100,2000)
-        if element <50:
-           s[index] = random.randint(100,2000)
 
-    rng1 = random.randint(0, round((len(s)-1)/4))
-    rng2 = random.randint(round((len(s)-1)/4)+1, round((len(s)-1)/2))
-    rng3 = random.randint(round((len(s)-1)/2)+1, round((len(s)-1)*3/4))
-    rng4 = random.randint(round((len(s)-1)*3/4)+1, len(s)-1)
+    #rng1 = random.randint(0, round((len(sk2)-1)/4))
+    #rng2 = random.randint(round((len(sk2)-1)/4)+1, round((len(sk2)-1)/2))
+    #rng3 = random.randint(round((len(sk2)-1)/2)+1, round((len(sk2)-1)*3/4))
+    #rng4 = random.randint(round((len(sk2)-1)*3/4)+1, len(sk2)-1)
+    #rng5 = random.randint(0, round((len(sk3)-1)/4))
+    #rng6 = random.randint(round((len(sk3)-1)/4)+1, round((len(sk3)-1)/2))
+    #rng7 = random.randint(round((len(sk3)-1)/2)+1, round((len(sk3)-1)*3/4))
+    #rng8 = random.randint(round((len(sk3)-1)*3/4)+1, len(sk3)-1)
     #print(s[rng1])
     #print(round(s[rng1]*2/3))
-    r1 = random.randint(round(s[rng1]*2/4), round(s[rng1]*6/5))
-    r2 = random.randint(round(s[rng2]*2/4), round(s[rng2]*6/5))
-    r3 = random.randint(round(s[rng3]*2/4), round(s[rng3]*6/5))
-    r4 = random.randint(round(s[rng4]*2/4), round(s[rng4]*6/5))
-    s[rng1] = r1
-    s[rng2] = r2
-    s[rng3] = r3
-    s[rng4] = r4
+    #r1 = random.randint(round(sk2[rng1]*2/3), round(sk2[rng1]*4/3))
+    #r2 = random.randint(round(sk2[rng2]*2/3), round(sk2[rng2]*4/3))
+    #r3 = random.randint(round(sk2[rng3]*2/3), round(sk2[rng3]*4/3))
+    #r4 = random.randint(round(sk2[rng4]*2/3), round(sk2[rng4]*4/3))
+    #r5 = random.randint(round(sk3[rng5]*2/3), round(sk3[rng5]*4/3))
+    #r6 = random.randint(round(sk3[rng6]*2/3), round(sk3[rng6]*4/3))
+    #r7 = random.randint(round(sk3[rng7]*2/3), round(sk3[rng7]*4/3))
+    #r8 = random.randint(round(sk3[rng8]*2/3), round(sk3[rng8]*4/3))
+    #sk2[rng1] = r1
+    #sk2[rng2] = r2
+    #sk2[rng3] = r3
+    #sk2[rng4] = r4
+    #sk3[rng5] = r5
+    #sk3[rng6] = r6
+    #sk3[rng7] = r7
+    #sk3[rng8] = r8
     
+<<<<<<< HEAD
     rng5 = random.randint(0, round((len(s)-1)/2))
     rng6 = random.randint(round((len(s)-1)/2)+1, len(s)-1)
     temp = s[rng5]
@@ -378,10 +401,23 @@ def create_jmx_file(f_workload, loopingtime):
     s[rng6] = s[rng5]
 
     s = s + 1
+=======
+    s = np.concatenate((sk2,sk3))
+    #rng9 = random.randint(0, round((len(s)-1)/2))
+    #rng10 = random.randint(round((len(s)-1)/2)+1, len(s)-1)
+    #temp = s[rng9]
+    #s[rng9] = s[rng10]
+    #s[rng10] = temp
+
+    #s = np.concatenate((s, s, s))
+>>>>>>> a23a0278c989158be818a845d5280c50f12b8ac6
     #if loopingtime==0:
     #   s = [200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200]
     print(s)
-     
+    
+    for index, element in enumerate(s):
+        s[index] = random.randint(200,2000)
+
     n = str(loopingtime)
     file_name0 = "test" + n + ".jmx"
     file_name = "test.jmx"
@@ -391,6 +427,7 @@ def create_jmx_file(f_workload, loopingtime):
     for i in range(0, len(data) - 1):
         if re.search("ConstantTimer.delay", data[i]):
             element = re.split('(<|>)', data[i])
+            #print(str(s[k]))
             element[4] = str(s[k]).replace(".0","")
             #print(element[4])
             str_element = ""
@@ -399,7 +436,8 @@ def create_jmx_file(f_workload, loopingtime):
             data[i] = str_element
         if re.search("RandomTimer.range", data[i]):
             element = re.split('(<|>)', data[i])
-            element[4] = str("100")
+            rn = random.randint(100,500)
+            element[4] = str(rn).replace(".0","")
             str_element = ""
             for e in element:
                 str_element += e
@@ -441,10 +479,11 @@ def main():
     #os.system('pkill screen')
     
     workload_store = []
+    #workload_store = pd.read_csv("workload_store138.csv")
     jmx_file_name = "test.jmx"
     #today = date.today()
     #today = str(today)
-    today = "2021-05-13" 
+    today = "2021-06-10" 
     log_file_address = '/home/yuanjiexia/openmrs-core/webapp/target/access-' + today + '.log'
     perf_file_address = '/home/yuanjiexia/screenlog.0'
     workload_store, mutate_workload = analysis_data(log_file_address, perf_file_address, workload_store,0)
@@ -453,7 +492,7 @@ def main():
     #initial_create(0)
     create_jmx_file(mutate_workload, 0)
     os.system('sudo mv screenlog.0 screenlog0.0')
-    for loop_time in range(1, 120):
+    for loop_time in range(1, 300):
         #break
         print("looptime:"+str(loop_time))
         if localtime().tm_hour > 22:
@@ -463,13 +502,19 @@ def main():
         os.system('cp ~/.OpenMRS/openmrs.log ~')
         sleep(3)
         os.system('mv openmrs.log openmrs.log.'+str(loop_time-1))
+        os.system('mv openmrs.log.'+str(loop_time-1)+' ~/log')
         today = date.today()
         today = str(today)
         jmeter_function(jmx_file_name)
-        sleep(2)
+        sleep(3)
         pidstat_function(loop_time)
-        sleep(190)
+        sleep(1020)
         os.system('pkill screen')
+        #os.chdir('openmrs-core/webapp')
+        #os.system('screen -d -m mvn jetty:run')
+        #os.chdir('../')
+        #os.chdir('../')
+        #sleep(120)
         log_file_address = '/home/yuanjiexia/openmrs-core/webapp/target/access-' + today + '.log'
         perf_file_address = '/home/yuanjiexia/screenlog.0'
         #os.system('sudo rm -rf /home/yuanjiexia/localhost_access_log.' + today + '.txt')
