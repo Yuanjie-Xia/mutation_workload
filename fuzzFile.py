@@ -363,55 +363,7 @@ def create_jmx_file(f_workload, loopingtime):
     sk2 = np.concatenate((sk0,sk0,sk0,sk0,sk0,sk0))
     sk3 = np.concatenate((sk1,sk1,sk1,sk1,sk1,sk1))
     s = np.concatenate((sk2,sk3))
-    #print(sk3)
-    #print(s)
 
-    #rng1 = random.randint(0, round((len(sk2)-1)/4))
-    #rng2 = random.randint(round((len(sk2)-1)/4)+1, round((len(sk2)-1)/2))
-    #rng3 = random.randint(round((len(sk2)-1)/2)+1, round((len(sk2)-1)*3/4))
-    #rng4 = random.randint(round((len(sk2)-1)*3/4)+1, len(sk2)-1)
-    #rng5 = random.randint(0, round((len(sk3)-1)/4))
-    #rng6 = random.randint(round((len(sk3)-1)/4)+1, round((len(sk3)-1)/2))
-    #rng7 = random.randint(round((len(sk3)-1)/2)+1, round((len(sk3)-1)*3/4))
-    #rng8 = random.randint(round((len(sk3)-1)*3/4)+1, len(sk3)-1)
-    #print(s[rng1])
-    #print(round(s[rng1]*2/3))
-    #r1 = random.randint(round(sk2[rng1]*2/3), round(sk2[rng1]*4/3))
-    #r2 = random.randint(round(sk2[rng2]*2/3), round(sk2[rng2]*4/3))
-    #r3 = random.randint(round(sk2[rng3]*2/3), round(sk2[rng3]*4/3))
-    #r4 = random.randint(round(sk2[rng4]*2/3), round(sk2[rng4]*4/3))
-    #r5 = random.randint(round(sk3[rng5]*2/3), round(sk3[rng5]*4/3))
-    #r6 = random.randint(round(sk3[rng6]*2/3), round(sk3[rng6]*4/3))
-    #r7 = random.randint(round(sk3[rng7]*2/3), round(sk3[rng7]*4/3))
-    #r8 = random.randint(round(sk3[rng8]*2/3), round(sk3[rng8]*4/3))
-    #sk2[rng1] = r1
-    #sk2[rng2] = r2
-    #sk2[rng3] = r3
-    #sk2[rng4] = r4
-    #sk3[rng5] = r5
-    #sk3[rng6] = r6
-    #sk3[rng7] = r7
-    #sk3[rng8] = r8
-
-    rng5 = random.randint(0, round((len(s)-1)/2))
-    rng6 = random.randint(round((len(s)-1)/2)+1, len(s)-1)
-    temp = s[rng5]
-    s[rng5] = s[rng6]
-    s[rng6] = s[rng5]
-
-    s = s + 1
-    s = np.concatenate((sk2,sk3))
-    #rng9 = random.randint(0, round((len(s)-1)/2))
-    #rng10 = random.randint(round((len(s)-1)/2)+1, len(s)-1)
-    #temp = s[rng9]
-    #s[rng9] = s[rng10]
-    #s[rng10] = temp
-
-    #s = np.concatenate((s, s, s))
-    #if loopingtime==0:
-    #   s = [200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200]
-    print(s)
-    
     for index, element in enumerate(s):
         s[index] = random.randint(200,2000)
 

@@ -6,10 +6,10 @@ from datetime import date, timedelta
 
 
 def transfer2type(system, action, url):
+    url = str(url)
+    # print(url)
+    action = str(action)
     if system == 'OpenMRS':
-        url = str(url)
-        # print(url)
-        action = str(action)
         if re.search("encounter", url):
             if re.search("encountertype", url):
                 url = "GET_URL4"
@@ -37,6 +37,34 @@ def transfer2type(system, action, url):
                 url = "GET_URL3"
             else:
                 url = "GET_URL8"
+    if system == 'TeaStore':
+        if action == "GET":
+            if re.search("webui", url):
+                if re.search("status", url):
+                    url = "x1"
+                if re.search("profile", url):
+                    url = "x2"
+                if re.search("database", url):
+                    url = "x3"
+                if re.search("login", url):
+                    url = "x4"
+                if re.search("category", url):
+                    url = "x5"
+                if re.search("product", url):
+                    url = "x6"
+                if re.search("cart", url):
+                    url = "x7"
+                else:
+                    url = "x8"
+        if action == "POST":
+            if re.search("loginAction", url):
+                url = "x9"  # cannot distinguish login and logout
+            if re.search("category"):
+                url = "x9a"
+            if re.search("cartAction"):
+                url = "x9b"
+            if re.search("order", url):
+                url = "x9c"
     return url
 
 
@@ -107,3 +135,20 @@ def load_file(log_address, perf_address, period_size):
     search_value = ['POST', 'DELETE', 'GET']
     log = log.loc[log.url.str.contains('|'.join(search_value)), :]
     return log, perf
+
+
+def generate_workload(abstracted_log):
+    workload_count = abstracted_log.copy()
+    abstracted_log['combine'] = abstracted_log['url'] + abstracted_log['respondCode'] + abstracted_log[
+        'time_period'].astype(str)
+    abstracted_log['combine1'] = abstracted_log['url'] + abstracted_log['respondCode']
+    abstracted_log['n'] = abstracted_log.groupby("combine")['combine'].transform('count')
+    abstracted_log = abstracted_log.drop_duplicates(['combine'])
+    workload_signature = abstracted_log.pivot(index='time_period', columns='combine1', values='n').fillna(0)
+
+    workload_count['combine'] = workload_count['url'] + workload_count['time_period'].astype(str)
+    workload_count['n'] = workload_count.groupby("combine")['combine'].transform('count')
+    workload_count = workload_count.drop_duplicates(['combine'])
+    url_workload = workload_count.pivot(index='time_period', columns='url', values='n').fillna(0)
+
+    return workload_signature, url_workload
