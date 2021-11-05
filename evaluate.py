@@ -62,19 +62,16 @@ def measure_s(signature, perf):
                 break
         signature['pvalue'] = np.where((signature['cluster'] == cluster), p_value, signature['pvalue'])
         signature['size'] = np.where((signature['cluster'] == cluster), len(cluster_time_period), signature['size'])
-    #print(signature[['time_period', 'stability']])
+    # print(signature[['time_period', 'stability']])
     signature['stability'] = signature['pvalue'].rank(pct=True) * signature['size'].rank(pct=True)
-    signature['stability'] = 1 - signature['stability'].rank(pct=True)
-    signature.loc[signature['size'] == 1, 'stability'] = 1
+    signature['stability'] = signature['stability'].rank(pct=True)
+    signature.loc[signature['size'] == 1, 'stability'] = 0
     return signature
 
 
 def measure_d(workload_store, url_workload, loop_time):
     workload = url_workload.copy()
-
     corr_max = []
-    workload_store = workload.copy()
-    workload_store['x1'] = 0
     if len(workload_store) > 0:
         for i in range(0, len(url_workload)):
             corr = []
@@ -91,15 +88,16 @@ def measure_d(workload_store, url_workload, loop_time):
         #        max_corr = 0
         #    corr_max.append(max_corr)
         # normalized
-        # rm_d_corr = 1 - (corr_max - min(corr_max)) / (max(corr_max) - min(corr_max))
+        #rm_d_corr = 1 - (corr_max - min(corr_max)) / (max(corr_max) - min(corr_max))
         # print(rm_d_corr)
         url_workload['diversity'] = corr
+        url_workload['diversity'] = url_workload['diversity'].rank(pct=True)
 
     if loop_time < 1:
-        url_workload['diversity'] = 1
+        url_workload['diversity'] = 0
         workload_store = pd.DataFrame(workload, columns=list(workload.columns))
     else:
         workload_store = pd.concat([workload_store.reset_index(), workload.reset_index()])
         # workload_store = workload_store.drop(columns=['time_period'])
-
+    url_workload = url_workload.reset_index()
     return url_workload, workload_store

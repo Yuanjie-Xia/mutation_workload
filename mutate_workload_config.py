@@ -6,7 +6,6 @@ class WorkLoad:
     def __init__(self, time_window_length, system, logFileAddress, perfFileAddress,
                  loop_time, workload_store=[], log_data=[], perf_data=[],
                  signature=[], url_fr=[]):
-
         self.time_window_length = time_window_length
         self.logFileAddress = logFileAddress
         self.perfFileAddress = perfFileAddress
@@ -29,7 +28,10 @@ class WorkLoad:
     def evaluate_workload(self):
         self.signature = evaluate.hierarchical_clustering(self.signature)
         self.signature = evaluate.measure_s(self.signature, self.perf_data)
-        self.signature, self.workload_store \
+        self.url_fr, self.workload_store \
             = evaluate.measure_d(self.workload_store, self.url_fr, self.loop_time)
-        print(self.signature)
-
+        self.signature['diversity'] = self.url_fr['diversity']
+        self.signature['measurement'] = abs(self.signature['stability']) + abs(self.signature['diversity'])
+        selection_df = self.signature.sort_values(by=['measurement'], ascending=False)
+        selected_workload = selection_df[0:2]
+        print(selection_df)

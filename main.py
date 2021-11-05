@@ -7,7 +7,7 @@ perfFileAddress = 'test_set/screenlog.0'
 def main():
     workload = mutate_workload_config.WorkLoad(10, 'TeaStore', logFileAddress=logFileAddress,
                                                perfFileAddress=perfFileAddress,
-                                               loop_time=1)
+                                               loop_time=0)
     workload.load_data()
     workload.evaluate_workload()
 
