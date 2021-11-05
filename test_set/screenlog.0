@@ -1,0 +1,498 @@
+Linux 5.10.47-linuxkit (99587ad56eeb) 	11/05/21 	_x86_64_	(4 CPU)
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126145     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126145     0        36  100.00   24.80    0.00   36.19     0   1583.10      1.00 4470372  864420  42.51      0.00    418.00    355.60       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126145     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126145     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126145     0       321    0.00    0.00    0.00    0.00     0      0.00      0.00   28232    2752   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126145     0       322    0.00    0.00    0.00    0.00     0      0.90      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126155     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126155     0        36  100.00   24.60    0.00   35.61     0    942.70      0.40 4497092  894896  44.01      0.00    720.80    631.20       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126155     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126155     0       320    0.00    0.00    0.00    0.00     0      0.10      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126155     0       321    0.00    0.00    0.00    0.00     0      0.20      0.00   28232    2752   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126155     0       322    0.00    0.00    0.00    0.00     0      0.20      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126165     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126165     0        36   86.81   24.88    0.00   29.15     0    485.21      0.10 4506344  900540  44.29      0.00     86.71     65.53       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126165     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126165     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126165     0       321    0.00    0.00    0.00    0.00     0      0.10      0.00   28232    2752   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126165     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126175     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126175     0        36   68.80   21.70    0.00   23.59     0    197.30      0.50 4508392  904812  44.50      0.00    229.60    187.20       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126175     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126175     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126175     0       321    0.00    0.00    0.00    0.00     0      0.10      0.00   28232    2752   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126175     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126185     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126185     0        36   66.30   21.00    0.00   22.79     0    447.40      0.50 4509420  920664  45.28      0.00     59.60     36.40       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126185     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126185     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126185     0       321    0.00    0.10    0.00    0.03     0      0.00      0.00   28232    2752   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126185     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126195     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126195     0        36   60.80   21.60    0.00   21.56     0    143.20      0.50 4509420  925172  45.50      0.00    119.60     91.20       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126195     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126195     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126195     0       321    0.00    0.00    0.00    0.00     0      0.10      0.00   28232    2752   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126195     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126205     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126205     0        36   59.80   20.20    0.00   20.94     0    132.70      0.50 4510448  928368  45.66      0.00     81.20     56.40       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126205     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126205     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126205     0       321    0.00    0.00    0.00    0.00     0      0.40      0.00   28232    2752   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126205     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126215     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126215     0        36   53.20   19.70    0.00   19.11     0     93.40      0.50 4512496  929264  45.70      0.40    116.80     86.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126215     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126215     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126215     0       321    0.00    0.00    0.00    0.00     0      0.00      0.00   28232    2752   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126215     0       322    0.00    0.00    0.00    0.00     3      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126225     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126225     0        36   57.80   21.30    0.00   20.65     0    102.20      1.00 4512496  930844  45.78      0.00     60.00     35.60       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126225     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126225     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126225     0       321    0.00    0.00    0.00    0.00     0      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126225     0       322    0.00    0.10    0.00    0.03     3      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126235     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126235     0        36   61.10   22.00    0.00   21.80     0    138.40      1.00 4512496  936616  46.06      0.00    118.40     85.20       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126235     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126235     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126235     0       321    0.00    0.00    0.00    0.00     0      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126235     0       322    0.00    0.00    0.00    0.00     3      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126245     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126245     0        36   50.70   22.80    0.00   19.31     0     95.40      0.00 4512496  936632  46.06      0.00     33.20     16.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126245     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126245     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126245     0       321    0.00    0.00    0.00    0.00     0      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126245     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126255     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126255     0        36   37.70   19.80    0.00   15.13     0     90.80      0.00 4512496  938156  46.14      0.00     13.20      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126255     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126255     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126255     0       321    0.00    0.00    0.00    0.00     0      0.20      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126255     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126265     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126265     0        36   41.90   21.00    0.00   16.50     0     97.00      0.50 4512496  941772  46.32      0.00     43.20     23.20       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126265     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126265     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126265     0       321    0.00    0.10    0.00    0.03     3      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126265     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126275     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126275     0        36   46.50   21.00    0.00   17.71     0     85.20      0.50 4512496  940544  46.25      0.00     25.60      8.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126275     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126275     0       320    0.00    0.00    0.00    0.00     1      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126275     0       321    0.00    0.00    0.00    0.00     3      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126275     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126285     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126285     0        36   41.40   19.40    0.00   15.95     0     81.80      0.00 4511472  940440  46.25      0.00     12.80      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126285     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126285     0       320    0.00    0.00    0.00    0.00     1      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126285     0       321    0.00    0.00    0.00    0.00     3      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126285     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126295     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126295     0        36   32.00   18.10    0.00   13.18     0     73.30      0.00 4512496  942628  46.36      0.00     28.40     13.20       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126295     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126295     0       320    0.00    0.00    0.00    0.00     1      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126295     0       321    0.00    0.00    0.00    0.00     3      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126295     0       322    0.00    0.10    0.00    0.03     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126305     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126305     0        36   30.40   20.30    0.00   13.39     0     55.60      0.50 4512496  941308  46.29      0.00     42.00     18.80       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126305     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126305     0       320    0.00    0.00    0.00    0.00     1      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126305     0       321    0.00    0.00    0.00    0.00     0      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126305     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126315     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126315     0        36   40.20   21.50    0.00   16.27     0     72.40      0.00 4512496  945056  46.48      0.00     91.20     70.40       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126315     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126315     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126315     0       321    0.10    0.00    0.00    0.03     0      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126315     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126325     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126325     0        36   34.60   18.80    0.00   14.02     0    104.40      0.00 4512496  945708  46.51      0.00     12.80      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126325     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126325     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126325     0       321    0.00    0.00    0.00    0.00     0      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126325     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126335     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126335     0        36   28.00   20.00    0.00   12.68     0     76.10      0.50 4514544  946816  46.56      0.00    130.80    101.20       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126335     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126335     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126335     0       321    0.00    0.00    0.00    0.00     0      0.20      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126335     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126345     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126345     0        36   33.10   22.30    0.00   14.61     0     85.90      0.00 4511980  947616  46.60      0.00     15.20      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126345     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126345     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126345     0       321    0.00    0.10    0.00    0.03     0      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126345     0       322    0.10    0.00    0.00    0.03     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126355     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126355     0        36   29.30   19.70    0.00   12.94     0     88.20      0.00 4514544  950092  46.72      0.00    100.80     76.40       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126355     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126355     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126355     0       321    0.00    0.00    0.00    0.00     0      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126355     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126365     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126365     0        36   30.90   19.30    0.00   13.26     0     97.30      0.50 4514544  951408  46.79      0.00     23.20      7.20       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126365     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126365     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126365     0       321    0.00    0.00    0.00    0.00     0      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126365     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126375     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126375     0        36   24.20   18.80    0.00   11.38     0     74.00      0.00 4514544  951560  46.80      0.00     48.40     33.20       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126375     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126375     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126375     0       321    0.00    0.00    0.00    0.00     3      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126375     0       322    0.00    0.10    0.00    0.03     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126385     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126385     0        36   28.20   18.60    0.00   12.33     0     60.40      0.00 4514544  952600  46.85      0.00     11.60      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126385     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126385     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126385     0       321    0.00    0.00    0.00    0.00     2      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126385     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126395     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126395     0        36   26.40   17.70    0.00   11.60     0     53.80      0.50 4514544  952912  46.86      0.00     14.40      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126395     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126395     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126395     0       321    0.00    0.00    0.00    0.00     2      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126395     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126405     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126405     0        36   26.20   20.30    0.00   12.30     0     63.30      0.00 4514544  952332  46.83      0.00     11.60      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126405     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126405     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126405     0       321    0.00    0.00    0.00    0.00     2      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126405     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126415     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126415     0        36   26.40   18.90    0.00   11.94     0     71.70      0.00 4514544  954544  46.94      0.00     98.40     74.40       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126415     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126415     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126415     0       321    0.00    0.00    0.00    0.00     2      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126415     0       322    0.00    0.00    0.00    0.00     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126425     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126425     0        36   23.30   19.00    0.00   11.14     0     63.20      0.50 4514544  954556  46.94      0.00     29.60     11.20       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126425     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126425     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126425     0       321    0.00    0.00    0.00    0.00     2      0.20      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126425     0       322    0.00    0.00    0.00    0.00     2      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126435     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126435     0        36   27.60   20.10    0.00   12.57     0     76.50      0.00 4514544  956664  47.05      0.00     12.40      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126435     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126435     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126435     0       321    0.00    0.00    0.00    0.00     0      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126435     0       322    0.00    0.00    0.00    0.00     2      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126445     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126445     0        36   32.40   22.00    0.00   14.53     0     68.50      0.00 4512616  955828  47.01      0.00     41.60     23.20       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126445     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126445     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126445     0       321    0.00    0.10    0.00    0.03     0      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126445     0       322    0.00    0.00    0.00    0.00     2      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126455     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126455     0        36   28.80   20.10    0.00   12.91     0     80.40      0.50 4514544  956932  47.06      0.00     47.60     28.40       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126455     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126455     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126455     0       321    0.00    0.00    0.00    0.00     1      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126455     0       322    0.00    0.00    0.00    0.00     2      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126465     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126465     0        36   26.40   21.00    0.00   12.55     0     67.90      0.50 4514544  958424  47.13      0.00     17.20      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126465     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126465     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126465     0       321    0.00    0.00    0.00    0.00     2      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126465     0       322    0.00    0.00    0.00    0.00     3      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126475     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126475     0        36   28.40   19.80    0.00   12.75     0     69.00      0.00 4514544  957888  47.11      0.00     12.00      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126475     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126475     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126475     0       321    0.00    0.00    0.00    0.00     0      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126475     0       322    0.00    0.10    0.00    0.03     0      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126485     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126485     0        36   40.46   21.98    0.00   16.46     0     70.13      0.00 4514544  957752  47.10      0.00     12.39      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126485     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126485     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126485     0       321    0.00    0.00    0.00    0.00     0      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126485     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126495     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126495     0        36   31.03   20.92    0.00   13.66     0     79.98      0.40 4513732  957888  47.11      0.00    103.70     76.88       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126495     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126495     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126495     0       321    0.00    0.00    0.00    0.00     0      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126495     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126505     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126505     0        36   25.27   20.18    0.00   12.04     0     57.64      0.10 4514544  956416  47.04      0.00     14.79      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126505     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126505     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126505     0       321    0.00    0.00    0.00    0.00     0      0.20      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126505     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126515     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126515     0        36   25.10   20.30    0.00   12.01     0     65.70      0.00 4514544  957316  47.08      0.00     32.80     16.80       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126515     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126515     0       320    0.00    0.00    0.00    0.00     2      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126515     0       321    0.00    0.10    0.00    0.03     0      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126515     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126525     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126525     0        36   24.80   18.30    0.00   11.38     0    115.90      0.50 4514544  958984  47.16      0.00     14.00      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126525     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126525     0       320    0.00    0.00    0.00    0.00     2      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126525     0       321    0.00    0.00    0.00    0.00     2      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126525     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126535     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126535     0        36   26.80   18.90    0.00   12.06     0     74.10      0.00 4514544  958612  47.14      0.00     40.80     22.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126535     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126535     0       320    0.00    0.00    0.00    0.00     2      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126535     0       321    0.00    0.00    0.00    0.00     2      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126535     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126545     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126545     0        36   35.70   18.40    0.00   14.20     0     77.30      0.00 4514544  959360  47.18      0.00     38.40     20.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126545     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126545     0       320    0.00    0.00    0.00    0.00     2      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126545     0       321    0.00    0.00    0.00    0.00     2      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126545     0       322    0.00    0.10    0.00    0.03     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126555     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126555     0        36   26.90   20.00    0.00   12.46     0     58.00      0.50 4511980  959204  47.17      0.00     13.20      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126555     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126555     0       320    0.00    0.00    0.00    0.00     2      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126555     0       321    0.00    0.00    0.00    0.00     2      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126555     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126565     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126565     0        36   26.40   20.10    0.00   12.30     0     72.30      0.50 4514544  962572  47.34      0.00     17.60      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126565     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126565     0       320    0.00    0.00    0.00    0.00     2      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126565     0       321    0.00    0.00    0.00    0.00     2      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126565     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126575     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126575     0        36   21.90   16.70    0.00   10.14     0     67.50      0.00 4514544  962232  47.32      0.00     27.20     12.40       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126575     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126575     0       320    0.00    0.00    0.00    0.00     2      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126575     0       321    0.00    0.00    0.00    0.00     2      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126575     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126585     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126585     0        36   25.40   20.50    0.00   12.12     0     59.60      0.40 4514544  963768  47.40      0.00     14.00      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126585     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126585     0       320    0.00    0.00    0.00    0.00     2      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126585     0       321    0.00    0.00    0.00    0.00     2      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126585     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126595     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126595     0        36   26.80   18.30    0.00   11.90     0     51.50      0.50 4514544  963148  47.37      0.00     14.80      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126595     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126595     0       320    0.00    0.00    0.00    0.00     2      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126595     0       321    0.00    0.00    0.00    0.00     2      0.20      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126595     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126605     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126605     0        36   28.40   20.80    0.00   13.02     0     61.40      0.60 4514544  963720  47.39      0.00     40.80     20.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126605     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126605     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126605     0       321    0.00    0.00    0.00    0.00     2      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126605     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126615     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126615     0        36   32.50   19.80    0.00   13.81     0     59.50      0.50 4514544  963844  47.40      0.00     17.20      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126615     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126615     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126615     0       321    0.00    0.00    0.00    0.00     2      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126615     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126625     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126625     0        36   24.00   20.20    0.00   11.64     0     62.10      0.00 4514544  962580  47.34      0.00     13.20      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126625     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126625     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126625     0       321    0.10    0.00    0.00    0.03     1      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126625     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126635     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126635     0        36   24.10   20.20    0.00   11.69     0     58.20      0.00 4514544  962340  47.33      0.00     10.40      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126635     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126635     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126635     0       321    0.00    0.00    0.00    0.00     3      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126635     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126645     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126645     0        36   25.60   19.20    0.00   11.82     0     58.00      0.50 4514544  962632  47.34      0.00     14.00      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126645     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126645     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126645     0       321    0.00    0.10    0.00    0.03     3      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126645     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126655     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126655     0        36   22.30   17.90    0.00   10.56     0     61.30      0.50 4511980  962268  47.32      0.00     14.00      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126655     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126655     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126655     0       321    0.00    0.00    0.00    0.00     3      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126655     0       322    0.00    0.10    0.00    0.03     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126665     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126665     0        36   23.30   19.80    0.00   11.39     0     93.70      0.50 4516592  965528  47.48      0.00     14.00      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126665     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126665     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126665     0       321    0.00    0.00    0.00    0.00     3      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126665     0       322    0.10    0.00    0.00    0.03     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126675     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126675     0        36   23.40   20.70    0.00   11.69     0     56.20      1.00 4514028  962588  47.34      0.00     35.60     15.60       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126675     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126675     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126675     0       321    0.00    0.00    0.00    0.00     3      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126675     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126685     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126685     0        36   22.50   18.10    0.00   10.72     0     74.60      0.50 4516592  965392  47.48      0.00     13.60      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126685     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126685     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126685     0       321    0.00    0.00    0.00    0.00     3      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126685     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126695     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126695     0        36   25.40   20.40    0.00   12.10     0     54.70      1.00 4516592  965200  47.47      0.00     16.40      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126695     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126695     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126695     0       321    0.00    0.00    0.00    0.00     3      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126695     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126705     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126705     0        36   32.80   18.90    0.00   13.63     0     55.50      0.50 4514668  964412  47.43      0.00    146.00    118.80       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126705     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126705     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126705     0       321    0.00    0.00    0.00    0.00     3      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126705     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126715     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126715     0        36   35.50   19.60    0.00   14.52     0     67.70      0.50 4514028  963904  47.40      0.00     13.20      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126715     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126715     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126715     0       321    0.00    0.00    0.00    0.00     3      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126715     0       322    0.00    0.00    0.00    0.00     1      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126725     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126725     0        36   25.60   20.60    0.00   12.19     0     68.80      0.50 4516592  965564  47.49      0.00     15.20      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126725     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126725     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126725     0       321    0.00    0.00    0.00    0.00     3      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126725     0       322    0.00    0.00    0.00    0.00     2      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126735     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126735     0        36   35.40   19.70    0.00   14.55     0     66.20      0.00 4516592  967068  47.56      0.00     28.80     12.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126735     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126735     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126735     0       321    0.00    0.00    0.00    0.00     2      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126735     0       322    0.00    0.00    0.00    0.00     2      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126745     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126745     0        36   30.80   21.90    0.00   14.06     0     53.10      0.00 4516592  967636  47.59      0.00     13.20      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126745     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126745     0       320    0.00    0.00    0.00    0.00     0      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126745     0       321    0.00    0.00    0.00    0.00     1      0.10      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126745     0       322    0.00    0.00    0.00    0.00     2      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+
+#      Time   UID       PID    %usr %system  %guest    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+ 1636126755     0         1    0.00    0.00    0.00    0.00     3      0.00      0.00    4284     764   0.04      0.00      0.00      0.00       0  /bin/sh -c java -jar /usr/local/tomcat/bin/dockermemoryconfigurator.jar ${TOMCAT_HEAP_MEM_PERCENTAGE}; /usr/local/tomcat/bin/st
+ 1636126755     0        36   23.30   20.40    0.00   11.59     0     56.90      0.50 4516592  967620  47.59      0.00     14.80      0.00       0  /docker-java-home/jre/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.ma
+ 1636126755     0        68    0.00    0.00    0.00    0.00     1      0.00      0.00    4284     740   0.04      0.00      0.00      0.00       0  /bin/sh 
+ 1636126755     0       320    0.00    0.00    0.00    0.00     2      0.00      0.00   27812    2772   0.14      0.00      0.00      0.00       0  screen -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126755     0       321    0.00    0.00    0.00    0.00     1      0.00      0.00   28232    2864   0.14      0.00      0.00      0.00       0  SCREEN -L screenlog.0 pidstat -p ALL -u -r -d -h -I -l 10 
+ 1636126755     0       322    0.00    0.00    0.00    0.00     2      0.00      0.00    4632    1728   0.08      0.00      0.00      0.00       0  pidstat -p ALL -u -r -d -h -I -l 10 
+^C

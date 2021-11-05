@@ -4,6 +4,7 @@ import numpy as np
 from scipy import stats, spatial
 import pandas as pd
 from statistics import stdev
+from scipy.stats import pearsonr
 
 
 def hierarchical_clustering(signature):
@@ -68,40 +69,37 @@ def measure_s(signature, perf):
     return signature
 
 
-def measure_d(workload_store, signature, loop_time):
-    workload = signature.copy()
-    # workload = workload.drop(columns=['cluster'])
-    workload = workload.reset_index()
-    # workload_store = workload.copy()
-    # workload_store['DELETE_URL2204'] = 0
-    # print(workload_store)
-    # workload_store = workload_store.replace({'DELETE_URL2204': {0: 100, 4: 400}})
-    # print(workload_store['DELETE_URL2204'].iloc[[1,2]])
-    maxcorr = []
-    # print(np.corrcoef(workload_store, workload))
+def measure_d(workload_store, url_workload, loop_time):
+    workload = url_workload.copy()
+
+    corr_max = []
+    workload_store = workload.copy()
+    workload_store['x1'] = 0
     if len(workload_store) > 0:
-        for i in range(0, len(signature)):
+        for i in range(0, len(url_workload)):
             corr = []
             for k in range(0, len(workload_store)):
-                distance = 1 - spatial.distance.euclidean(workload_store[k:k + 1], workload[i:i + 1])
+                # distance = 1 - spatial.distance.cosine(workload_store[k:k + 1], workload[i:i + 1])
+                p_corr, _ = pearsonr(np.array(workload_store[k:k + 1])[0], np.array(workload[i:i + 1])[0])
+                distance = 1 - p_corr
                 corr.append(distance)
-
-            if max(corr) - min(corr) > 0:
-                std_corr = (corr - np.mean(corr)) / stdev(corr)
-                max_corr = max(std_corr)
-            else:
-                max_corr = 0
-            maxcorr.append(max_corr)
-
-        rm_dimention_corr = 1 - (maxcorr - min(maxcorr)) / (max(maxcorr) - min(maxcorr))
-        # print(rm_dimention_corr)
-        signature['diversity'] = rm_dimention_corr
+        # standardized
+        #    if max(corr) - min(corr) > 0:
+        #        std_corr = (corr - np.mean(corr)) / stdev(corr)
+        #        max_corr = max(std_corr)
+        #    else:
+        #        max_corr = 0
+        #    corr_max.append(max_corr)
+        # normalized
+        # rm_d_corr = 1 - (corr_max - min(corr_max)) / (max(corr_max) - min(corr_max))
+        # print(rm_d_corr)
+        url_workload['diversity'] = corr
 
     if loop_time < 1:
-        signature['diversity'] = 1
+        url_workload['diversity'] = 1
         workload_store = pd.DataFrame(workload, columns=list(workload.columns))
     else:
         workload_store = pd.concat([workload_store.reset_index(), workload.reset_index()])
         # workload_store = workload_store.drop(columns=['time_period'])
 
-    return signature, workload_store
+    return url_workload, workload_store
