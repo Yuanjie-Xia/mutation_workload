@@ -10,6 +10,7 @@ def main():
                                                loop_time=0)
     workload.load_data()
     workload.evaluate_workload()
+    workload.sort_workload()
 
 
 if __name__ == "__main__":

@@ -60,14 +60,16 @@ def transfer2type(system, action, url):
                 if url == "/":
                     url = "x8"
         if action == "POST":
-            if re.search("loginAction", url):
-                url = "x9"  # cannot distinguish login and logout
-            if re.search("category", url):
+            if re.search("isloggedin", url):
+                url = "x9"
+            if re.search("logout", url):
                 url = "x9a"
-            if re.search("cartAction", url):
+            if re.search("category", url):
                 url = "x9b"
-            if re.search("order", url):
+            if re.search("cartAction", url):
                 url = "x9c"
+            if re.search("order", url):
+                url = "x9d"
     return url
 
 
@@ -139,7 +141,7 @@ def load_file(log_address, perf_address, period_size):
         split_list.append([action, url, response, time_period])
 
     log = pd.DataFrame(split_list, columns=['action', 'url', 'respondCode', 'time_period'])
-    log = log[log['url'].isin(['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x9a', 'x9b', 'x9c'])]
+    log = log[log['url'].isin(['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x9a', 'x9b', 'x9c', 'x9d'])]
     # search_value = ['POST', 'GET']
     # log = log.loc[log.url.str.contains('|'.join(search_value)), :]
     # print(log)
