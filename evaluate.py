@@ -1,9 +1,8 @@
 import scipy.cluster.hierarchy as spc
 import sklearn.metrics as sm
 import numpy as np
-from scipy import stats, spatial
+from scipy import stats
 import pandas as pd
-from statistics import stdev
 from scipy.stats import pearsonr
 
 

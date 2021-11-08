@@ -37,11 +37,10 @@ class WorkLoad:
         self.signature['measurement'] = abs(self.signature['stability']) + abs(self.signature['diversity'])
         self.url_fr['measurement'] = self.signature['measurement']
         self.url_fr['cluster'] = self.signature['cluster']
-        print(self.url_fr)
 
     def sort_workload(self):
         # sort and mutate workload
-        selection_df = self.signature.sort_values('measurement', ascending=False).drop_duplicates(['cluster'])
+        selection_df = self.url_fr.sort_values('measurement', ascending=False).drop_duplicates(['cluster'])
         # selection_df = self.signature.sort_values(by=['measurement'], ascending=False)
         if len(selection_df) >= 2:
             self.selected_workload = selection_df[0:2]
@@ -60,4 +59,4 @@ class WorkLoad:
                 self.selected_workload[self.selected_workload.columns[i]] = line
 
     def generate_running_file(self):
-        pass
+        self.selected_workload.to_csv("ratio.csv", index = False)
