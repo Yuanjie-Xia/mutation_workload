@@ -14,58 +14,58 @@ i = 0
 class TeaStoreEvents1(HttpUser):
     wait_time = between(1, 1)
 
-    @task(int(ratio.iloc[i, 0]))
+    @task
     def check_server_status(self):
         self.client.get("/tools.descartes.teastore.webui/status")
 
-    @task(int(ratio.iloc[i, 1]))
+    @task
     def check_user_profile(self):
         self.client.get("/tools.descartes.teastore.webui/profile")
 
-    @task(int(ratio.iloc[i, 2]))
+    @task
     def check_database_setup(self):
         self.client.get("/tools.descartes.teastore.webui/database")
 
-    @task(int(ratio.iloc[i, 3]))
+    @task
     def home(self):
         self.client.get("/tools.descartes.teastore.webui/")
 
-    @task(int(ratio.iloc[i, 4]))
+    @task
     def login_page(self):
         self.client.get("/tools.descartes.teastore.webui/login")
 
-    @task(int(ratio.iloc[i, 5]))
+    @task
     def login_action(self):
         self.client.post("/tools.descartes.teastore.webui/loginAction",
                          json={'username': users, 'password': 'password'})
 
-    @task(int(ratio.iloc[i, 6]))
+    @task
     def log_out(self):
         self.client.post("/tools.descartes.teastore.webui/loginAction", json={'logout': ''})
 
-    @task(int(ratio.iloc[i, 7]))
+    @task
     def list_products(self):
         self.client.get("/tools.descartes.teastore.webui/category",
                         json={'category': category, 'page': page})
 
-    @task(int(ratio.iloc[i, 8]))
+    @task
     def look_at_product(self):
         self.client.get("/tools.descartes.teastore.webui/product", json={'id': product})
 
-    @task(int(ratio.iloc[i, 9]))
+    @task
     def adjust_view_count(self):
         self.client.post("/tools.descartes.teastore.webui/category",
                          json={'page': 1, 'category': category, 'number': 30})
 
-    @task(int(ratio.iloc[i, 10]))
+    @task
     def add_product2cart(self):
         self.client.post("/tools.descartes.teastore.webui/cartAction",
                          json={'addToCart': '', 'productid': product})
 
-    @task(int(ratio.iloc[i, 11]))
+    @task
     def check_shopping_cart(self):
         self.client.get("/tools.descartes.teastore.webui/cart")
 
-    @task(int(ratio.iloc[i, 12]))
+    @task
     def place_an_order(self):
         self.client.post("/tools.descartes.teastore.webui/order")

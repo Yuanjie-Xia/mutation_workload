@@ -2,12 +2,14 @@ from load_file import load_file, generate_workload
 import evaluate
 import numpy as np
 import random
+import keras
+from keras import layers
 
 
 class WorkLoad:
     def __init__(self, time_window_length, system, logFileAddress, perfFileAddress,
                  loop_time, workload_store=[], log_data=[], perf_data=[],
-                 signature=[], url_fr=[], selected_workload=[]):
+                 signature=[], url_fr=[], selected_workload=[], config=[], model=[]):
         self.time_window_length = time_window_length
         self.logFileAddress = logFileAddress
         self.perfFileAddress = perfFileAddress
@@ -19,6 +21,15 @@ class WorkLoad:
         self.signature = signature
         self.url_fr = url_fr
         self.selected_workload = selected_workload
+        self.config = config
+        self.model = model
+
+    def set_config(self):
+        pass
+
+    def init_config(self):
+        self.config = [2, 6]
+        # cpu limit and memory limit
 
     def load_data(self):
         self.log_data, self.perf_data = load_file(self.logFileAddress,
@@ -30,13 +41,16 @@ class WorkLoad:
 
     def evaluate_workload(self):
         self.signature = evaluate.hierarchical_clustering(self.signature)
-        self.signature = evaluate.measure_s(self.signature, self.perf_data)
+        self.signature = evaluate.measure_s(self.signature, self.perf_data, self.config, self.model)
         self.url_fr, self.workload_store \
             = evaluate.measure_d(self.workload_store, self.url_fr, self.loop_time)
         self.signature['diversity'] = self.url_fr['diversity']
         self.signature['measurement'] = abs(self.signature['stability']) + abs(self.signature['diversity'])
         self.url_fr['measurement'] = self.signature['measurement']
         self.url_fr['cluster'] = self.signature['cluster']
+        self.signature.to_csv("siginature" + str(self.loop_time) + ".csv")
+        self.perf_data.to_csv("perf" + str(self.loop_time) + ".csv")
+        self.url_fr.to_csv("url_fr" + str(self.loop_time) + ".csv")
 
     def sort_workload(self):
         # sort and mutate workload
@@ -58,5 +72,39 @@ class WorkLoad:
                 line[0] = temp
                 self.selected_workload[self.selected_workload.columns[i]] = line
 
+        for i in range(0, np.size(self.selected_workload.columns)):
+            v = random.randint(0, 1)
+            if v == 1:
+                line = self.selected_workload[self.selected_workload.columns[i]].to_numpy()
+                v0 = random.randint(0, 1)
+                line[v0] = random.randint(int(2/line[v0]), int(3*line[v0]/2))
+                if line[v0] < 5:
+                    line[v0] = line[v0] + 10
+                self.selected_workload[self.selected_workload.columns[i]] = line
+
     def generate_running_file(self):
-        self.selected_workload.to_csv("ratio.csv", index = False)
+        self.selected_workload.to_csv("ratio.csv", index=False)
+
+    def b_cnn(self):
+        max_len = len(self.signature.loc[:, self.signature.columns.str.startswith('x')].columns)+len(self.config)
+        # A integer input for vocab indices.
+        # inputs = keras.Input(shape=(series_input.shape[1], 1,))
+        inputs = keras.Input(shape=(1, max_len), dtype="float32")
+        # Conv1D + global max pooling
+        x = layers.Conv1D(128, 3, padding="same", activation="relu", strides=3)(inputs)
+        x = layers.Conv1D(128, 3, padding="same", activation="relu", strides=3)(x)
+        x = layers.GlobalMaxPooling1D()(x)
+
+        # We add a vanilla hidden layer:
+        x = layers.Dense(128, activation="relu")(x)
+        x = layers.Dropout(0.5)(x)
+
+        # We project onto a single unit output layer, and squash it with a sigmoid:
+        predictions = layers.Dense(1, activation="linear", name="predictions")(x)
+
+        model = keras.Model(inputs, predictions)
+
+        # Compile the model with binary crossentropy loss and an adam optimizer.
+        model.compile(loss="mse", optimizer="adam", metrics=["mape"])
+        self.model = model
+

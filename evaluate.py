@@ -27,7 +27,7 @@ def hierarchical_clustering(signature):
     return signature
 
 
-def measure_s(signature, perf):
+def measure_s(signature, perf, config, model):
     # Get the size of the cluster
     cluster_amount = signature.copy()
     cluster_amount['count'] = cluster_amount.groupby('cluster')['cluster'].transform('count')
@@ -39,32 +39,20 @@ def measure_s(signature, perf):
 
     # Generate stability value for time period in small cluster
     signature = signature.reset_index()
-    signature['pvalue'] = 0
-    signature['size'] = 1
-
-    # Calculate stability value for time period in large cluster
-    large_cluster_array = large_cluster['cluster'].to_numpy()
-    for cluster in large_cluster_array:
-        cluster_time_period = signature.loc[lambda df: df['cluster'] == cluster]
-        cluster_time_period = cluster_time_period['time_period'].to_numpy()
-        first_sample = []
-        for i in range(0, len(cluster_time_period) - 1):
-            perf_data = perf.loc[lambda df: df['time_period'] == cluster_time_period[i]]
-            cpu_data = perf_data['rss'].to_numpy()
-            first_sample.extend(cpu_data)
-            second_sample = first_sample.copy()
-            perf_data = perf.loc[lambda df: df['time_period'] == cluster_time_period[i + 1]]
-            cpu_data = perf_data['rss'].to_numpy()
-            second_sample.extend(cpu_data)
-            p_value = stats.ks_2samp(first_sample, second_sample)[1]
-            if p_value >= 0.05:
-                break
-        signature['pvalue'] = np.where((signature['cluster'] == cluster), p_value, signature['pvalue'])
-        signature['size'] = np.where((signature['cluster'] == cluster), len(cluster_time_period), signature['size'])
+    # create training set
+    series_input_train = signature.loc[:, signature.columns.str.startswith('x')].copy()
+    series_input_train['cpulimit'] = config[0]
+    series_input_train['memorylimit'] = config[1]
+    series_input_train = np.expand_dims(series_input_train, axis=1)
+    # create target part
+    target = perf.loc[perf['time_period'] < 61]['cpu']
+    target = np.expand_dims(target, axis=1)
+    # cnn training model
+    model.fit(series_input_train, target, batch_size=32, epochs=100)
+    result = model.predict(series_input_train)
+    signature['stability'] = 1 - abs(target - result)/target
     # print(signature[['time_period', 'stability']])
-    signature['stability'] = signature['pvalue'].rank(pct=True) * signature['size'].rank(pct=True)
     signature['stability'] = signature['stability'].rank(pct=True)
-    signature.loc[signature['size'] == 1, 'stability'] = 0
     return signature
 
 

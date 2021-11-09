@@ -80,7 +80,7 @@ def load_file(log_address, perf_address, period_size):
     i = 0
 
     for line in perf_data:
-        if line.__contains__('tomcat'):
+        if line.__contains__('docker-java-home'):
             # print(line)
             element_perf = line.split()
             while i == 0:
@@ -89,14 +89,11 @@ def load_file(log_address, perf_address, period_size):
             try:
                 if int(element_perf[0]) % 10 == 5:
                     time_interval = int(element_perf[0]) - start_time
-                    time_period = math.floor(time_interval / (period_size * 3)) + 1
-                    time_round = math.floor(time_interval / period_size) + 1
-                    # need to increase number of performance in each time period
+                    time_period = math.floor(time_interval / period_size) + 1
                     cpu = float(element_perf[6])
                     rss = float(element_perf[11])
                     memory = float(element_perf[12])
-                    if time_round % 3 == 1:
-                        split_list.append([time_period, cpu, rss, memory])
+                    split_list.append([time_period, cpu, rss, memory])
             except ValueError:
                 print("cannot convert to int in "+str(line))
             finally:
@@ -127,9 +124,9 @@ def load_file(log_address, perf_address, period_size):
         # print(current_time)
         duration = (current_time - transfer_start_time).total_seconds()
         # Designed as the pidstat run after jmeter start
-        time_period = math.floor(duration / (3 * period_size)) + 1
+        time_period = math.floor(duration / period_size) + 1
         # print(time_period)
-        if time_period > 12:
+        if time_period > 60:
             break
         if time_period < 1:
             continue
