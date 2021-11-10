@@ -8,22 +8,31 @@ perfFileAddress = 'test_set/screenlog.0'
 
 def main():
     window_size = 10
-    os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
-    os.system("locust -f runtest_init.py --headless --users 1 --spawn-rate 1 --run-time=30s -H http://localhost:8080")
-    os.system('pkill screen')
     workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
                                                perfFileAddress=perfFileAddress,
                                                loop_time=0)
-    workload.load_data()
     workload.init_config()
+    os.system('docker run --cpus="' + workload.config[0] + '" -m=' + workload.config[1] +
+              'GB -e "DB_HOST=teastore-db" -p 8080:8080 -d --link teastore-db:teastore-db '
+              '--name teastore-all descartesresearch/teastore-all')
+    os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
+    os.system("locust -f runtest_init.py --headless --users 1 --spawn-rate 1 --run-time=30s -H http://localhost:8080")
+    os.system('pkill screen')
+    workload.load_data()
+    workload.set_config()
     workload.b_cnn()
     workload.evaluate_workload()
     workload.sort_workload()
     workload.generate_running_file()
+    workload.set_config()
 
     for loop_time in range(1, 100):
         os.system('sudo mv screenlog.0 screenlog' + str(loop_time) + '.0')
         os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
+        os.system('docker rm teastore-all')
+        os.system('docker run --cpus="' + workload.config[0] +'" -m=' + workload.config[1] +
+                  'GB -e "DB_HOST=teastore-db" -p 8080:8080 -d --link teastore-db:teastore-db '
+                  '--name teastore-all descartesresearch/teastore-all')
         os.system("locust -f runtest1.py --headless --users 1 --spawn-rate 1 --run-time=30s -H http://localhost:8080")
         os.system("locust -f runtest2.py --headless --users 1 --spawn-rate 1 --run-time=30s -H http://localhost:8080")
         os.system('pkill screen')

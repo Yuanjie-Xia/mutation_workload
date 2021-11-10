@@ -4,6 +4,7 @@ import numpy as np
 from scipy import stats
 import pandas as pd
 from scipy.stats import pearsonr
+import statistics
 
 
 def hierarchical_clustering(signature):
@@ -51,9 +52,10 @@ def measure_s(signature, perf, config, model):
     model.fit(series_input_train, target, batch_size=32, epochs=100)
     result = model.predict(series_input_train)
     signature['stability'] = 1 - abs(target - result)/target
+    rate = 1 - statistics.median(signature['stability'])
     # print(signature[['time_period', 'stability']])
     signature['stability'] = signature['stability'].rank(pct=True)
-    return signature
+    return signature, rate
 
 
 def measure_d(workload_store, url_workload, loop_time):

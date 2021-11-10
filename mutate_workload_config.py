@@ -9,7 +9,7 @@ from keras import layers
 class WorkLoad:
     def __init__(self, time_window_length, system, logFileAddress, perfFileAddress,
                  loop_time, workload_store=[], log_data=[], perf_data=[],
-                 signature=[], url_fr=[], selected_workload=[], config=[], model=[]):
+                 signature=[], url_fr=[], selected_workload=[], config=[], model=[], config_change_rate=0.5):
         self.time_window_length = time_window_length
         self.logFileAddress = logFileAddress
         self.perfFileAddress = perfFileAddress
@@ -23,9 +23,17 @@ class WorkLoad:
         self.selected_workload = selected_workload
         self.config = config
         self.model = model
+        self.config_change_rate = config_change_rate
 
     def set_config(self):
-        pass
+        v = random.random(0, 1)
+        if v >= self.config_change_rate:
+            self.config[0] = random.random(0.5, 4)
+            # cpu cores number
+        v = random.random(0, 1)
+        if v >= self.config_change_rate:
+            self.config[1] = random.random(2, 8)
+            # memory usage
 
     def init_config(self):
         self.config = [2, 6]
@@ -41,16 +49,19 @@ class WorkLoad:
 
     def evaluate_workload(self):
         self.signature = evaluate.hierarchical_clustering(self.signature)
-        self.signature = evaluate.measure_s(self.signature, self.perf_data, self.config, self.model)
+        self.signature, self.config_change_rate = evaluate.measure_s(self.signature, self.perf_data,
+                                                                     self.config, self.model)
         self.url_fr, self.workload_store \
             = evaluate.measure_d(self.workload_store, self.url_fr, self.loop_time)
+        self.workload_store['cpulimit'] = self.config[0]
+        self.workload_store['memorylimit'] = self.config[1]
+        self.signature.to_csv("workload_store" + str(self.loop_time) + ".csv")
         self.signature['diversity'] = self.url_fr['diversity']
         self.signature['measurement'] = abs(self.signature['stability']) + abs(self.signature['diversity'])
         self.url_fr['measurement'] = self.signature['measurement']
         self.url_fr['cluster'] = self.signature['cluster']
         self.signature.to_csv("siginature" + str(self.loop_time) + ".csv")
         self.perf_data.to_csv("perf" + str(self.loop_time) + ".csv")
-        self.url_fr.to_csv("url_fr" + str(self.loop_time) + ".csv")
 
     def sort_workload(self):
         # sort and mutate workload
