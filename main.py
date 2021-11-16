@@ -20,6 +20,7 @@ def main():
     os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
     os.system("locust -f runtest_init.py --headless --users 1 --spawn-rate 1 --run-time=30s -H http://localhost:8080")
     os.system('pkill screen')
+    # move file out docker
     workload.load_data()
     workload.set_config()
     workload.b_cnn()
@@ -37,15 +38,16 @@ def main():
                   '--name teastore-all descartesresearch/teastore-all')
         ssh_client = paramiko.SSHClient()
         ssh_client.load_system_host_keys()
-        ssh_client.connect(hostname='10.128.0.35', username='yuanjiexia')
-        ssh_client.exec_command('scp ~/mutation_workload/ratio.csv yuanjiexia@10.128.0.45:~/mutation_workload')
-        sleep(30)
+        ssh_client.connect(hostname='192.168.165.203', username='yxia', password='zengyi')
+        ssh_client.exec_command('scp ~/mutation_workload/ratio.csv yxia@192.168.165.203:~/mutation_workload')
+        sleep(60)
         os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
         ssh_client.exec_command("locust -f ~/mutation_workload/runtest1.py --headless --users 1 "
                                 "--spawn-rate 1 --run-time=30s -H http://localhost:8080")
         ssh_client.exec_command("locust -f ~/mutation_workload/runtest2.py --headless --users 1 "
                                 "--spawn-rate 1 --run-time=30s -H http://localhost:8080")
         os.system('pkill screen')
+        # move file out docker
         workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
                                                    perfFileAddress=perfFileAddress,
                                                    loop_time=loop_time)
