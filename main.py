@@ -5,11 +5,11 @@ import os
 from time import sleep
 from datetime import date
 
-logFileAddress = 'test_set/localhost_access_log.2021-11-05.txt'
-perfFileAddress = 'test_set/screenlog.0'
-
 
 def main():
+    today = date.today()
+    logFileAddress = '~/localhost_access_log.' + str(today) + '.txt'
+    perfFileAddress = '~/screenlog.0'
     window_size = 10
     ssh_client = paramiko.SSHClient()
     ssh_client.load_system_host_keys()
@@ -27,7 +27,6 @@ def main():
     ssh_client.exec_command("locust -f ~/mutation_workload/runtest_init.py --headless --users 1 "
                             "--spawn-rate 1 --run-time=30s -H http://192.168.165.201:8080")
     os.system('pkill screen')
-    today = date.today()
     os.system('sudo docker cp teastore-all:/usr/local/tomcat/logs/localhost_access_log.' + str(today) + 'txt ~/')
     workload.load_data()
     workload.set_config()
@@ -55,6 +54,8 @@ def main():
                                 "--spawn-rate 1 --run-time=30s -H http://192.168.165.201:8080")
         os.system('pkill screen')
         today = date.today()
+        logFileAddress = '~/localhost_access_log.' + str(today) + '.txt'
+        perfFileAddress = '~/screenlog.0'
         os.system('sudo docker cp teastore-all:/usr/local/tomcat/logs/localhost_access_log.' + str(today) + 'txt ~/')
         workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
                                                    perfFileAddress=perfFileAddress,
