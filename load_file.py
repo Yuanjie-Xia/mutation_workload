@@ -97,7 +97,7 @@ def load_file(log_address, perf_address, period_size):
             except ValueError:
                 print("cannot convert to int in "+str(line))
             finally:
-                continue
+                pass
 
     perf = pd.DataFrame(split_list, columns=['time_period', 'cpu', 'rss', 'memory'])
     # print(perf)

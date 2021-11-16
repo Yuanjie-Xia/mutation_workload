@@ -1,7 +1,5 @@
 from locust import HttpUser, task, between
 import random
-from pandas import read_csv
-import main
 
 users = random.randint(1, 99)
 category = random.randint(2, 6)

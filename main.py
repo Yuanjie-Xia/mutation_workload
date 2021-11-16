@@ -43,9 +43,9 @@ def main():
         sleep(60)
         os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
         ssh_client.exec_command("locust -f ~/mutation_workload/runtest1.py --headless --users 1 "
-                                "--spawn-rate 1 --run-time=30s -H http://localhost:8080")
+                                "--spawn-rate 1 --run-time=30s -H http://192.168.165.201:8080")
         ssh_client.exec_command("locust -f ~/mutation_workload/runtest2.py --headless --users 1 "
-                                "--spawn-rate 1 --run-time=30s -H http://localhost:8080")
+                                "--spawn-rate 1 --run-time=30s -H http://192.168.165.201:8080")
         os.system('pkill screen')
         # move file out docker
         workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
