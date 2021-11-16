@@ -3,6 +3,7 @@ import paramiko
 import mutate_workload_config
 import os
 from time import sleep
+from datetime import date
 
 logFileAddress = 'test_set/localhost_access_log.2021-11-05.txt'
 perfFileAddress = 'test_set/screenlog.0'
@@ -10,17 +11,24 @@ perfFileAddress = 'test_set/screenlog.0'
 
 def main():
     window_size = 10
+    ssh_client = paramiko.SSHClient()
+    ssh_client.load_system_host_keys()
+    ssh_client.connect(hostname='192.168.165.203', username='yxia', password='xyj0731')
     workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
                                                perfFileAddress=perfFileAddress,
                                                loop_time=0)
     workload.init_config()
-    os.system('docker run --cpus="' + str(workload.config[0]) + '" -m=' + str(workload.config[1]) +
+    os.system('sudo docker run --cpus="' + str(workload.config[0]) + '" -m=' + str(workload.config[1]) +
               'GB -e "DB_HOST=teastore-db" -p 8080:8080 -d --link teastore-db:teastore-db '
               '--name teastore-all descartesresearch/teastore-all')
+    os.system('sudo docker cp sever.xml teastore-all:/usr/local/tomcat/conf')
+    os.system('sudo docker restart teastore-all')
     os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
-    os.system("locust -f runtest_init.py --headless --users 1 --spawn-rate 1 --run-time=30s -H http://localhost:8080")
+    ssh_client.exec_command("locust -f ~/mutation_workload/runtest_init.py --headless --users 1 "
+                            "--spawn-rate 1 --run-time=30s -H http://192.168.165.201:8080")
     os.system('pkill screen')
-    # move file out docker
+    today = date.today()
+    os.system('sudo docker cp teastore-all:/usr/local/tomcat/logs/localhost_access_log.' + str(today) + 'txt ~/')
     workload.load_data()
     workload.set_config()
     workload.b_cnn()
@@ -32,13 +40,12 @@ def main():
 
     for loop_time in range(1, 100):
         os.system('sudo mv screenlog.0 screenlog' + str(loop_time) + '.0')
-        os.system('docker rm teastore-all')
-        os.system('docker run --cpus="' + workload.config[0] + '" -m=' + workload.config[1] +
+        os.system('sudo docker rm teastore-all')
+        os.system('sudo docker run --cpus="' + workload.config[0] + '" -m=' + workload.config[1] +
                   'GB -e "DB_HOST=teastore-db" -p 8080:8080 -d --link teastore-db:teastore-db '
                   '--name teastore-all descartesresearch/teastore-all')
-        ssh_client = paramiko.SSHClient()
-        ssh_client.load_system_host_keys()
-        ssh_client.connect(hostname='192.168.165.203', username='yxia', password='zengyi')
+        os.system('sudo docker cp sever.xml teastore-all:/usr/local/tomcat/conf')
+        os.system('sudo docker restart teastore-all')
         ssh_client.exec_command('scp ~/mutation_workload/ratio.csv yxia@192.168.165.203:~/mutation_workload')
         sleep(60)
         os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
@@ -47,7 +54,8 @@ def main():
         ssh_client.exec_command("locust -f ~/mutation_workload/runtest2.py --headless --users 1 "
                                 "--spawn-rate 1 --run-time=30s -H http://192.168.165.201:8080")
         os.system('pkill screen')
-        # move file out docker
+        today = date.today()
+        os.system('sudo docker cp teastore-all:/usr/local/tomcat/logs/localhost_access_log.' + str(today) + 'txt ~/')
         workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
                                                    perfFileAddress=perfFileAddress,
                                                    loop_time=loop_time)
