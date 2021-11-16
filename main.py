@@ -14,7 +14,7 @@ def main():
                                                perfFileAddress=perfFileAddress,
                                                loop_time=0)
     workload.init_config()
-    os.system('docker run --cpus="' + workload.config[0] + '" -m=' + workload.config[1] +
+    os.system('docker run --cpus="' + str(workload.config[0]) + '" -m=' + str(workload.config[1]) +
               'GB -e "DB_HOST=teastore-db" -p 8080:8080 -d --link teastore-db:teastore-db '
               '--name teastore-all descartesresearch/teastore-all')
     os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
