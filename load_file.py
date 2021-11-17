@@ -85,9 +85,10 @@ def load_file(log_address, perf_address, period_size):
             element_perf = line.split()
             while i == 0:
                 start_time = int(element_perf[0])
+                k = start_time % 10
                 i = i + 1
             try:
-                if int(element_perf[0]) % 10 == 5:
+                if int(element_perf[0]) % 10 == k:
                     time_interval = int(element_perf[0]) - start_time
                     time_period = math.floor(time_interval / period_size) + 1
                     cpu = float(element_perf[6])

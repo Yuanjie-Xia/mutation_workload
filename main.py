@@ -25,7 +25,7 @@ def main():
     os.system('sudo docker restart teastore-all')
     os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
     ssh_client.exec_command("locust -f ~/mutation_workload/runtest_init.py --headless --users 1 "
-                            "--spawn-rate 1 --run-time=30s -H http://192.168.165.201:8080")
+                            "--spawn-rate 1 --run-time=600s -H http://192.168.165.201:8080")
     os.system('pkill screen')
     os.system('sudo docker cp teastore-all:/usr/local/tomcat/logs/localhost_access_log.' + str(today) + 'txt ~/')
     workload.load_data()
@@ -49,9 +49,9 @@ def main():
         sleep(60)
         os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
         ssh_client.exec_command("locust -f ~/mutation_workload/runtest1.py --headless --users 1 "
-                                "--spawn-rate 1 --run-time=30s -H http://192.168.165.201:8080")
+                                "--spawn-rate 1 --run-time=300s -H http://192.168.165.201:8080")
         ssh_client.exec_command("locust -f ~/mutation_workload/runtest2.py --headless --users 1 "
-                                "--spawn-rate 1 --run-time=30s -H http://192.168.165.201:8080")
+                                "--spawn-rate 1 --run-time=300s -H http://192.168.165.201:8080")
         os.system('pkill screen')
         today = date.today()
         logFileAddress = '~/localhost_access_log.' + str(today) + '.txt'
