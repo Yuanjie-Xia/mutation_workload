@@ -20,7 +20,7 @@ def main():
     workload.init_config()
     os.system('sudo docker stop teastore-all')
     os.system('sudo docker rm teastore-all')
-    os.system('sudo docker run --cpus="' + str(workload.config[0]) + '" -m=' + str(workload.config[1]) +
+    os.system('sudo docker run --cpus=' + str(workload.config[0]) + ' -m=' + str(workload.config[1]) +
               'GB -e "DB_HOST=sense02" -p 8080:8080 -d '
               '--name teastore-all descartesresearch/teastore-all')
     os.system('sudo docker cp ~/mutation_workload/server.xml teastore-all:/usr/local/tomcat/conf')
