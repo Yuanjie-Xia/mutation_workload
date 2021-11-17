@@ -35,7 +35,7 @@ def main():
     workload.sort_workload()
     workload.generate_running_file()
     workload.set_config()
-    # send ratio.csv
+    os.system('sshpass -p \'xyj0731\' scp ratio.csv yxia@sense03:~/mutation_workload')
 
     for loop_time in range(1, 100):
         os.system('sudo mv screenlog.0 screenlog' + str(loop_time) + '.0')
@@ -66,7 +66,7 @@ def main():
         workload.evaluate_workload()
         workload.sort_workload()
         workload.generate_running_file()
-        # send ratio.csv
+        os.system('sshpass -p \'xyj0731\' scp ratio.csv yxia@sense03:~/mutation_workload')
 
 
 if __name__ == "__main__":
