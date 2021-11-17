@@ -68,13 +68,13 @@ def main():
                 print(code)
                 if code == 200:
                     break
-        except urllib.error.URLError:
-            print("web not avaliable yet")
-        finally:
-            sleep(3)
-            pass
-        if i > 90:
-            print("application cannot start")
+            except urllib.error.URLError:
+                print("web not avaliable yet")
+            finally:
+                sleep(3)
+                pass
+            if i > 90:
+                print("application cannot start")
         os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
         ssh_client.exec_command("locust -f ~/mutation_workload/runtest1.py --headless --users 1 "
                                 "--spawn-rate 1 --run-time=300s -H http://192.168.165.201:8080")
