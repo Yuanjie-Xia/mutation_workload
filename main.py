@@ -4,6 +4,7 @@ import mutate_workload_config
 import os
 from time import sleep
 from datetime import date
+import urllib
 
 
 def main():
@@ -25,7 +26,19 @@ def main():
               '--name teastore-all descartesresearch/teastore-all')
     os.system('sudo docker cp ~/mutation_workload/server.xml teastore-all:/usr/local/tomcat/conf')
     os.system('sudo docker restart teastore-all')
-    sleep(120)
+    for i in range(1,100):
+        try:
+            code = urllib.request.urlopen("http://192.168.165.201:8080/tools.descartes.teastore.webui").getcode()
+            print(code)
+            if code == 200:
+                break
+        except urllib.error.URLError:
+            print("web not avaliable yet")
+        finally:
+            sleep(3)
+            pass
+        if i > 90:
+            print("application cannot start")
     #os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
     #ssh_client.exec_command("locust -f ~/mutation_workload/runtest_init.py --headless --users 1 "
     #                        "--spawn-rate 1 --run-time=600s -H http://192.168.165.201:8080")
@@ -49,7 +62,19 @@ def main():
                   '--name teastore-all descartesresearch/teastore-all')
         os.system('sudo docker cp ~/mutation_workload/server.xml teastore-all:/usr/local/tomcat/conf')
         os.system('sudo docker restart teastore-all')
-        sleep(120)
+        for i in range(1,100):
+            try:
+                code = urllib.request.urlopen("http://192.168.165.201:8080/tools.descartes.teastore.webui").getcode()
+                print(code)
+                if code == 200:
+                    break
+        except urllib.error.URLError:
+            print("web not avaliable yet")
+        finally:
+            sleep(3)
+            pass
+        if i > 90:
+            print("application cannot start")
         os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
         ssh_client.exec_command("locust -f ~/mutation_workload/runtest1.py --headless --users 1 "
                                 "--spawn-rate 1 --run-time=300s -H http://192.168.165.201:8080")
