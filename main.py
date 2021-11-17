@@ -18,10 +18,11 @@ def main():
                                                perfFileAddress=perfFileAddress,
                                                loop_time=0)
     workload.init_config()
-    os.system('sudo docker run --cpus="' + str(workload.config[0]) + '" -m=' + str(workload.config[1]) +
-              'GB -e "DB_HOST=teastore-db" -p 8080:8080 -d --link teastore-db:teastore-db '
+    os.system('sudo docker rm teastore-all')
+    os.system('sudo docker run --cpus="' + workload.config[0] + '" -m=' + workload.config[1] +
+              'GB -e "DB_HOST=192.168.165.9" -p 8080:8080 -d '
               '--name teastore-all descartesresearch/teastore-all')
-    os.system('sudo docker cp sever.xml teastore-all:/usr/local/tomcat/conf')
+    os.system('sudo docker cp ~/mutation_workload/sever.xml teastore-all:/usr/local/tomcat/conf')
     os.system('sudo docker restart teastore-all')
     os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
     ssh_client.exec_command("locust -f ~/mutation_workload/runtest_init.py --headless --users 1 "
@@ -41,9 +42,9 @@ def main():
         os.system('sudo mv screenlog.0 screenlog' + str(loop_time) + '.0')
         os.system('sudo docker rm teastore-all')
         os.system('sudo docker run --cpus="' + workload.config[0] + '" -m=' + workload.config[1] +
-                  'GB -e "DB_HOST=teastore-db" -p 8080:8080 -d --link teastore-db:teastore-db '
+                  'GB -e "DB_HOST=192.168.165.9" -p 8080:8080 -d '
                   '--name teastore-all descartesresearch/teastore-all')
-        os.system('sudo docker cp sever.xml teastore-all:/usr/local/tomcat/conf')
+        os.system('sudo docker cp ~/mutation_workload/sever.xml teastore-all:/usr/local/tomcat/conf')
         os.system('sudo docker restart teastore-all')
         ssh_client.exec_command('scp ~/mutation_workload/ratio.csv yxia@192.168.165.203:~/mutation_workload')
         sleep(60)
