@@ -18,36 +18,38 @@ def main():
                                                perfFileAddress=perfFileAddress,
                                                loop_time=0)
     workload.init_config()
+    os.system('sudo docker stop teastore-all')
     os.system('sudo docker rm teastore-all')
-    os.system('sudo docker run --cpus="' + workload.config[0] + '" -m=' + workload.config[1] +
-              'GB -e "DB_HOST=192.168.165.9" -p 8080:8080 -d '
+    os.system('sudo docker run --cpus="' + str(workload.config[0]) + '" -m=' + str(workload.config[1]) +
+              'GB -e "DB_HOST=sense02" -p 8080:8080 -d '
               '--name teastore-all descartesresearch/teastore-all')
-    os.system('sudo docker cp ~/mutation_workload/sever.xml teastore-all:/usr/local/tomcat/conf')
+    os.system('sudo docker cp ~/mutation_workload/server.xml teastore-all:/usr/local/tomcat/conf')
     os.system('sudo docker restart teastore-all')
-    os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
-    ssh_client.exec_command("locust -f ~/mutation_workload/runtest_init.py --headless --users 1 "
-                            "--spawn-rate 1 --run-time=600s -H http://192.168.165.201:8080")
-    os.system('pkill screen')
-    os.system('sudo docker cp teastore-all:/usr/local/tomcat/logs/localhost_access_log.' + str(today) + 'txt ~/')
-    workload.load_data()
-    workload.set_config()
-    workload.b_cnn()
-    workload.evaluate_workload()
-    workload.sort_workload()
-    workload.generate_running_file()
-    workload.set_config()
-    os.system('sshpass -p \'xyj0731\' scp ratio.csv yxia@sense03:~/mutation_workload')
+    sleep(120)
+    #os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
+    #ssh_client.exec_command("locust -f ~/mutation_workload/runtest_init.py --headless --users 1 "
+    #                        "--spawn-rate 1 --run-time=600s -H http://192.168.165.201:8080")
+    #os.system('pkill screen')
+    #os.system('sudo docker cp teastore-all:/usr/local/tomcat/logs/localhost_access_log.' + str(today) + 'txt ~/')
+    #workload.load_data()
+    #workload.set_config()
+    #workload.b_cnn()
+    #workload.evaluate_workload()
+    #workload.sort_workload()
+    #workload.generate_running_file()
+    #workload.set_config()
+    #os.system('sshpass -p \'xyj0731\' scp ratio.csv yxia@sense03:~/mutation_workload')
 
     for loop_time in range(1, 100):
+        break
         os.system('sudo mv screenlog.0 screenlog' + str(loop_time) + '.0')
         os.system('sudo docker rm teastore-all')
         os.system('sudo docker run --cpus="' + workload.config[0] + '" -m=' + workload.config[1] +
-                  'GB -e "DB_HOST=192.168.165.9" -p 8080:8080 -d '
+                  'GB -e "DB_HOST=sense02" -p 8080:8080 -d '
                   '--name teastore-all descartesresearch/teastore-all')
-        os.system('sudo docker cp ~/mutation_workload/sever.xml teastore-all:/usr/local/tomcat/conf')
+        os.system('sudo docker cp ~/mutation_workload/server.xml teastore-all:/usr/local/tomcat/conf')
         os.system('sudo docker restart teastore-all')
-        ssh_client.exec_command('scp ~/mutation_workload/ratio.csv yxia@192.168.165.203:~/mutation_workload')
-        sleep(60)
+        sleep(120)
         os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -I -l ' + str(window_size))
         ssh_client.exec_command("locust -f ~/mutation_workload/runtest1.py --headless --users 1 "
                                 "--spawn-rate 1 --run-time=300s -H http://192.168.165.201:8080")
