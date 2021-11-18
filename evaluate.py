@@ -46,7 +46,7 @@ def measure_s(signature, perf, config, model):
     series_input_train['memorylimit'] = config[1]
     series_input_train = np.expand_dims(series_input_train, axis=1)
     # create target part
-    target = perf.loc[perf['time_period'] < 61]['cpu']
+    target = perf.loc[perf['time_period'] <= series_input_train.shape[0]]['cpu']
     target = np.expand_dims(target, axis=1)
     # cnn training model
     model.fit(series_input_train, target, batch_size=32, epochs=100)

@@ -26,11 +26,11 @@ class WorkLoad:
         self.config_change_rate = config_change_rate
 
     def set_config(self):
-        v = random.random(0, 1)
+        v = random.randrange(0, 1)
         if v >= self.config_change_rate:
             self.config[0] = random.random(0.5, 4)
             # cpu cores number
-        v = random.random(0, 1)
+        v = random.randrange(0, 1)
         if v >= self.config_change_rate:
             self.config[1] = random.random(2, 8)
             # memory usage
@@ -62,6 +62,7 @@ class WorkLoad:
         self.url_fr['cluster'] = self.signature['cluster']
         self.signature.to_csv("siginature" + str(self.loop_time) + ".csv")
         self.perf_data.to_csv("perf" + str(self.loop_time) + ".csv")
+        self.url_fr.to_csv("urlfr" + str(self.loop_time) + ".csv")
 
     def sort_workload(self):
         # sort and mutate workload
@@ -88,7 +89,7 @@ class WorkLoad:
             if v == 1:
                 line = self.selected_workload[self.selected_workload.columns[i]].to_numpy()
                 v0 = random.randint(0, 1)
-                line[v0] = random.randint(int(2/line[v0]), int(3*line[v0]/2))
+                line[v0] = random.randint(int(line[v0]/2), int(3*line[v0]/2))
                 if line[v0] < 5:
                     line[v0] = line[v0] + 10
                 self.selected_workload[self.selected_workload.columns[i]] = line

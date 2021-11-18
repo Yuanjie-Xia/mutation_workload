@@ -84,17 +84,18 @@ def load_file(log_address, perf_address, period_size):
             # print(line)
             element_perf = line.split()
             while i == 0:
-                start_time = int(element_perf[0])
+                start_time = int(element_perf[0]) + 20
                 k = start_time % 10
                 i = i + 1
             try:
                 if int(element_perf[0]) % 10 == k:
                     time_interval = int(element_perf[0]) - start_time
                     time_period = math.floor(time_interval / period_size) + 1
-                    cpu = float(element_perf[6])
-                    rss = float(element_perf[11])
-                    memory = float(element_perf[12])
-                    split_list.append([time_period, cpu, rss, memory])
+                    cpu = float(element_perf[7])
+                    rss = float(element_perf[12])
+                    memory = float(element_perf[13])
+                    if time_period > 0:
+                        split_list.append([time_period, cpu, rss, memory])
             except ValueError:
                 print("cannot convert to int in "+str(line))
             finally:
@@ -142,7 +143,8 @@ def load_file(log_address, perf_address, period_size):
     log = log[log['url'].isin(['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x9a', 'x9b', 'x9c', 'x9d'])]
     # search_value = ['POST', 'GET']
     # log = log.loc[log.url.str.contains('|'.join(search_value)), :]
-    # print(log)
+    print(log)
+    print(perf)
     return log, perf
 
 
