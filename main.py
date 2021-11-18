@@ -44,7 +44,7 @@ def main():
               '--headless --users 10 --spawn-rate 1 --run-time=600s -H http://192.168.165.201:8080\'')
     print("running command end here")
     os.system('pkill screen')
-    os.system('rm -rf '+ logFileAddress)
+    os.system('rm -rf ' + logFileAddress)
     os.system('sudo docker cp teastore-all:/usr/local/tomcat/logs/localhost_access_log.' + str(today) + '.txt ~/')
     os.system('sudo chmod 777 ~/localhost_access_log.' + str(today) + '.txt ~/')
     workload.load_data()
@@ -79,7 +79,7 @@ def main():
                   '--name teastore-all descartesresearch/teastore-all')
         os.system('sudo docker cp ~/mutation_workload/server.xml teastore-all:/usr/local/tomcat/conf')
         os.system('sudo docker restart teastore-all')
-        for i in range(1,100):
+        for i in range(1, 100):
             try:
                 code = urllib.request.urlopen("http://192.168.165.201:8080/tools.descartes.teastore.webui").getcode()
                 print(code)

@@ -60,7 +60,8 @@ def measure_s(signature, perf, config, model):
 
 def measure_d(workload_store, url_workload, config, loop_time):
     workload = url_workload.copy()
-    corr_max = []
+    print(workload)
+    # corr_max = []
     if len(workload_store) > 0:
         for i in range(0, len(url_workload)):
             corr = []
@@ -79,10 +80,12 @@ def measure_d(workload_store, url_workload, config, loop_time):
         # normalized
         #rm_d_corr = 1 - (corr_max - min(corr_max)) / (max(corr_max) - min(corr_max))
         # print(rm_d_corr)
+        print("corr:")
+        print(corr)
         url_workload['diversity'] = corr
         url_workload['diversity'] = url_workload['diversity'].rank(pct=True)
-    
-    print(config)
+        print(url_workload)
+
     workload['cpulimit'] = config[0]
     workload['memorylimit'] = config[1]
     if loop_time < 1:
@@ -94,4 +97,5 @@ def measure_d(workload_store, url_workload, config, loop_time):
         workload_store = workload_store.append(workload)
         # workload_store = workload_store.drop(columns=['time_period'])
     url_workload = url_workload.reset_index()
+    print(url_workload)
     return url_workload, workload_store
