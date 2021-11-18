@@ -58,7 +58,7 @@ def measure_s(signature, perf, config, model):
     return signature, rate
 
 
-def measure_d(workload_store, url_workload, loop_time):
+def measure_d(workload_store, url_workload, config, loop_time):
     workload = url_workload.copy()
     corr_max = []
     if len(workload_store) > 0:
@@ -81,12 +81,17 @@ def measure_d(workload_store, url_workload, loop_time):
         # print(rm_d_corr)
         url_workload['diversity'] = corr
         url_workload['diversity'] = url_workload['diversity'].rank(pct=True)
-
+    
+    print(config)
+    workload['cpulimit'] = config[0]
+    workload['memorylimit'] = config[1]
     if loop_time < 1:
         url_workload['diversity'] = 0
-        workload_store = pd.DataFrame(workload, columns=list(workload.columns))
+        workload_store = workload
     else:
-        workload_store = pd.concat([workload_store.reset_index(), workload.reset_index()])
+        print(workload_store)
+        print(workload)
+        workload_store = workload_store.append(workload)
         # workload_store = workload_store.drop(columns=['time_period'])
     url_workload = url_workload.reset_index()
     return url_workload, workload_store

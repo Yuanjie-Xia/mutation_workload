@@ -52,17 +52,23 @@ class WorkLoad:
         self.signature, self.config_change_rate = evaluate.measure_s(self.signature, self.perf_data,
                                                                      self.config, self.model)
         self.url_fr, self.workload_store \
-            = evaluate.measure_d(self.workload_store, self.url_fr, self.loop_time)
-        self.workload_store['cpulimit'] = self.config[0]
-        self.workload_store['memorylimit'] = self.config[1]
+            = evaluate.measure_d(self.workload_store, self.url_fr, self.config, self.loop_time)
+        # self.workload_store['cpulimit'] = self.config[0]
+        # self.workload_store['memorylimit'] = self.config[1]
         self.signature.to_csv("workload_store" + str(self.loop_time) + ".csv")
         self.signature['diversity'] = self.url_fr['diversity']
         self.signature['measurement'] = abs(self.signature['stability']) + abs(self.signature['diversity'])
         self.url_fr['measurement'] = self.signature['measurement']
         self.url_fr['cluster'] = self.signature['cluster']
         self.signature.to_csv("siginature" + str(self.loop_time) + ".csv")
+        print('signature:')
+        print(self.signature)
         self.perf_data.to_csv("perf" + str(self.loop_time) + ".csv")
+        print('perf:')
+        print(self.perf_data)
         self.url_fr.to_csv("urlfr" + str(self.loop_time) + ".csv")
+        print('url frenquency:')
+        print(self.url_fr)
 
     def sort_workload(self):
         # sort and mutate workload
@@ -72,7 +78,11 @@ class WorkLoad:
             self.selected_workload = selection_df[0:2]
         else:
             self.selected_workload = selection_df
-
+        self.selected_workload['x8'] = self.selected_workload['x8'] - self.selected_workload['x5'] - self.selected_workload['x6'] - self.selected_workload['x9'] - self.selected_workload['x9b']
+        self.selected_workload['x9'] = self.selected_workload['x9']/2
+        self.selected_workload['x9a'] = self.selected_workload['x9']
+        print('selected workload:')
+        print(self.selected_workload)
         self.selected_workload = \
             self.selected_workload.loc[:, self.selected_workload.columns.str.startswith('x')]
         for i in range(0, np.size(self.selected_workload.columns)):
