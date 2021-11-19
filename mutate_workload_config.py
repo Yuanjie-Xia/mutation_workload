@@ -79,7 +79,7 @@ class WorkLoad:
         else:
             self.selected_workload = selection_df
         self.selected_workload['x9'] = self.selected_workload['x9'] / 2
-        self.selected_workload.insert(9, "x9a", self.selected_workload['x9'])
+        self.selected_workload.insert(10, "x9a", self.selected_workload['x9'])
         self.selected_workload['x8'] = self.selected_workload['x8'] - self.selected_workload['x9'] - \
                                        self.selected_workload['x9b']
         if 'x2302' in self.signature.columns:
