@@ -39,12 +39,12 @@ def main():
         if i > 90:
             print("application cannot start")
     os.system('rm -rf /home/users/yzeng/mutation_workload/screenlog.0')
-    os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -H -I -l ' + str(window_size))
+    os.system('screen -S pids -d -m -L pidstat -p ALL -u -r -d -h -H -I -l ' + str(window_size))
     print("pidstat started")
     os.system('sshpass -p \'xyj0731\' ssh yxia@sense03 \'~/.local/bin/locust -f ~/mutation_workload/runtest_init.py '
               '--headless --users 10 --spawn-rate 1 --run-time=600s -H http://192.168.165.201:8080\'')
     print("running command end here")
-    os.system('pkill screen')
+    os.system('screen -X -S "pids" quit')
     os.system('rm -rf ' + logFileAddress)
     os.system('sudo docker cp teastore-all:/usr/local/tomcat/logs/localhost_access_log.' + str(today) + '.txt ~/')
     os.system('sudo chmod 777 ~/localhost_access_log.' + str(today) + '.txt ~/')
@@ -95,13 +95,13 @@ def main():
             if i > 90:
                 print("application cannot start")
         os.system('rm -rf /home/users/yzeng/mutation_workload/screenlog.0')
-        os.system('screen -d -m -L pidstat -p ALL -u -r -d -h -H -I -l ' + str(window_size))
+        os.system('screen -S pids -d -m -L pidstat -p ALL -u -r -d -h -H -I -l ' + str(window_size))
         os.system('sshpass -p \'xyj0731\' ssh yxia@sense03 \'~/.local/bin/locust -f ~/mutation_workload/runtest1.py '
                   '--headless --users 10 --spawn-rate 1 --run-time=300s -H http://192.168.165.201:8080\'')
         os.system('sshpass -p \'xyj0731\' ssh yxia@sense03 \'~/.local/bin/locust -f ~/mutation_workload/runtest2.py '
                   '--headless --users 10 --spawn-rate 1 --run-time=300s -H http://192.168.165.201:8080\'')
-        os.system('pkill screen')
-        os.system('rm -rf '+ logFileAddress)
+        os.system('screen -X -S "pids" quit')
+        os.system('rm -rf ' + logFileAddress)
         os.system('sudo docker cp teastore-all:/usr/local/tomcat/logs/localhost_access_log.' + str(today) + '.txt ~/')
         os.system('sudo chmod 777 ~/localhost_access_log.' + str(today) + '.txt ~/')
         workload.load_data()
