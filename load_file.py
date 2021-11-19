@@ -128,7 +128,7 @@ def load_file(log_address, perf_address, period_size):
         # Designed as the pidstat run after jmeter start
         time_period = math.floor(duration / period_size) + 1
         # print(time_period)
-        if time_period > 60:
+        if time_period > 55:
             break
         if time_period < 1:
             continue
