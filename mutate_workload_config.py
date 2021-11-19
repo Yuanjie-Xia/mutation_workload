@@ -103,10 +103,11 @@ class WorkLoad:
 
             if line[v0] < 5:
                 line[v0] = line[v0] + 10
-                self.selected_workload[self.selected_workload.columns[i]] = line
 
             for index, element in enumerate(line):
-                line[index] = int(((line[index] - min(line))/(max(line) - min(line)))*10)
+                line[index] = ((line[index] - min(line))/(max(line) - min(line)))*10
+            print(line)
+            self.selected_workload[self.selected_workload.columns[i]] = line
 
     def generate_running_file(self):
         self.selected_workload.to_csv("ratio.csv", index=False)
