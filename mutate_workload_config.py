@@ -104,8 +104,8 @@ class WorkLoad:
 
         for i in range(0, self.selected_workload.shape[0]):
             line = self.selected_workload.iloc[[i]].to_numpy()
-            max_value = line.amax
-            min_value = line.amin
+            max_value = max(line)
+            min_value = min(line)
             print(max_value)
             for index, element in enumerate(line):
                 if line[index] < 5:
