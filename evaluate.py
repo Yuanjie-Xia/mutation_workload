@@ -71,8 +71,8 @@ def measure_d(workload_store, url_workload, config, loop_time):
                 p_corr, _ = pearsonr(np.array(workload_store[k:k + 1])[0], np.array(workload[i:i + 1])[0])
                 distance = 1 - p_corr
                 print(distance)
-                corr = corr.append(distance)
-            corr_max = corr_max.append(max(corr))
+                corr.append(distance)
+            corr_max.append(max(corr))
         # standardized
         #    if max(corr) - min(corr) > 0:
         #        std_corr = (corr - np.mean(corr)) / stdev(corr)
@@ -98,7 +98,7 @@ def measure_d(workload_store, url_workload, config, loop_time):
     else:
         # print(workload_store)
         # print(workload)
-        workload_store = workload_store.append(workload)
+        workload_store.append(workload)
         # workload_store = workload_store.drop(columns=['time_period'])
     url_workload = url_workload.reset_index()
     # print(url_workload)
