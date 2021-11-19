@@ -103,15 +103,15 @@ class WorkLoad:
         self.selected_workload[self.selected_workload.columns[i]] = line
 
         for i in range(0, self.selected_workload.shape[0]):
-            line = self.selected_workload.iloc[[i]].to_numpy()
-            max_value = max(line)
-            min_value = min(line)
+            line = self.selected_workload.iloc[[i]]
+            max_value = line.max()
+            min_value = line.min()
             print(max_value)
-            for index, element in enumerate(line):
-                if line[index] < 5:
-                    line[index] = line[index] + 5
-                print(line[index])
-                line[index] = ((line[index] - min_value)/(max_value - min_value))*10
+            for j in range(0, self.selected_workload.shape[1]):
+                if line.iloc[i, j] < 5:
+                    line.iloc[i, j] = line.iloc[i, j] + 5
+                print(line.iloc[i, j])
+                line.iloc[i, j] = ((line.iloc[i, j] - min_value)/(max_value - min_value))*10
         self.selected_workload.iloc[[i]] = line
 
     def generate_running_file(self):
