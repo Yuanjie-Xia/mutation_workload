@@ -101,11 +101,14 @@ class WorkLoad:
                 v0 = random.randint(0, 1)
                 line[v0] = random.randint(int(line[v0]/2), int(3*line[v0]/2))
 
+            max_value = max(line)
+            min_value = min(line)
+            print(max_value)
             for index, element in enumerate(line):
                 if line[index] < 5:
                     line[index] = line[index] + 5
-                line[index] = ((line[index] - min(line))/(max(line) - min(line)))*10
-            print(line)
+                print(line[index])
+                line[index] = ((line[index] - min_value)/(max_value - min_value))*10
             self.selected_workload[self.selected_workload.columns[i]] = line
 
     def generate_running_file(self):
