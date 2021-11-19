@@ -96,13 +96,17 @@ class WorkLoad:
 
         for i in range(0, np.size(self.selected_workload.columns)):
             v = random.randint(0, 1)
+            line = self.selected_workload[self.selected_workload.columns[i]].to_numpy()
             if v == 1:
-                line = self.selected_workload[self.selected_workload.columns[i]].to_numpy()
                 v0 = random.randint(0, 1)
                 line[v0] = random.randint(int(line[v0]/2), int(3*line[v0]/2))
-                if line[v0] < 5:
-                    line[v0] = line[v0] + 10
+
+            if line[v0] < 5:
+                line[v0] = line[v0] + 10
                 self.selected_workload[self.selected_workload.columns[i]] = line
+
+            for index, element in enumerate(line):
+                line[index] = int(((line[index] - min(line))/(max(line) - min(line)))*10)
 
     def generate_running_file(self):
         self.selected_workload.to_csv("ratio.csv", index=False)
