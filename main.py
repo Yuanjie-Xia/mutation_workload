@@ -68,7 +68,7 @@ def main():
                                                    perfFileAddress=perfFileAddress,
                                                    loop_time=loop_time, workload_store=workload_store)
         workload.config = history_config
-        if datetime.now(pytz.utc).hour >= 11:
+        if datetime.now(pytz.utc).hour >= 23:
             if datetime.now(pytz.utc).minute >= 45:
                 print('wait date change')
                 sleep(900)
