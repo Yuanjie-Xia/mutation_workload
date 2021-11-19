@@ -55,7 +55,7 @@ class WorkLoad:
             = evaluate.measure_d(self.workload_store, self.url_fr, self.config, self.loop_time)
         # self.workload_store['cpulimit'] = self.config[0]
         # self.workload_store['memorylimit'] = self.config[1]
-        self.signature.to_csv("workload_store" + str(self.loop_time) + ".csv")
+        self.workload_store.to_csv("workload_store" + str(self.loop_time) + ".csv")
         self.signature['diversity'] = self.url_fr['diversity']
         self.signature['measurement'] = abs(self.signature['stability']) + abs(self.signature['diversity'])
         self.url_fr['measurement'] = self.signature['measurement']
