@@ -108,8 +108,8 @@ class WorkLoad:
             max_value = max(line)
             v = random.randint(0, 4)
             if v == 1:
-                v1 = random.randint(0, len(line))
-                v2 = random.randint(0, len(line))
+                v1 = random.randint(0, len(line)-1)
+                v2 = random.randint(0, len(line)-1)
                 temp = line[v1]
                 line[v1] = line[v2]
                 line[v2] = temp
