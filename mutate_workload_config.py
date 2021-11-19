@@ -30,13 +30,13 @@ class WorkLoad:
         v = random.randrange(0, 100)/100
         print(v)
         if v >= self.config_change_rate:
-            self.config[0] = random.random(0.5, 4)
+            self.config[0] = random.randrange(4, 8)/2
             print(self.config[0])
             # cpu cores number
         v = random.randrange(0, 100)/100
         print(v)
         if v >= self.config_change_rate:
-            self.config[1] = random.random(2, 8)
+            self.config[1] = random.randrange(2, 8)
             print(self.config[1])
             # memory usage
 
