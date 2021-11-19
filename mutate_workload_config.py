@@ -102,6 +102,7 @@ class WorkLoad:
                 line[v0] = random.randint(int(line[v0]/2), int(3*line[v0]/2))
         for i in range(0, self.selected_workload.shape[0]):
             line = self.selected_workload.iloc[[i]]
+            print(line)
             max_value = line.max()
             min_value = line.min()
             print(max_value)
