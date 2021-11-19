@@ -60,19 +60,19 @@ def measure_s(signature, perf, config, model):
 
 def measure_d(workload_store, url_workload, config, loop_time):
     workload = url_workload.copy()
-    corr_max = np.array()
+    corr_max = list()
     if len(workload_store) > 0:
         for i in range(0, len(url_workload)):
             workload['cpulimit'] = config[0]
             workload['memorylimit'] = config[1]
-            corr = np.array()
+            corr = list()
             for k in range(0, min(len(workload), len(workload_store))):
                 # distance = 1 - spatial.distance.cosine(workload_store[k:k + 1], workload[i:i + 1])
                 p_corr, _ = pearsonr(np.array(workload_store[k:k + 1])[0], np.array(workload[i:i + 1])[0])
                 distance = 1 - p_corr
                 print(distance)
-                corr.append(distance)
-            corr_max.append(max(corr))
+                corr = corr.append(distance)
+            corr_max = corr_max.append(max(corr))
         # standardized
         #    if max(corr) - min(corr) > 0:
         #        std_corr = (corr - np.mean(corr)) / stdev(corr)
