@@ -7,7 +7,7 @@ users = random.randint(1, 99)
 category = random.randint(2, 6)
 page = random.randint(1, 5)
 product = random.randint(7, 506)
-ratio = read_csv("ratio.csv")
+ratio = read_csv("/home/users/yxia/mutation_workload/ratio.csv")
 i = 1
 
 
