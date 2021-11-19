@@ -28,12 +28,16 @@ class WorkLoad:
 
     def set_config(self):
         v = random.randrange(0, 1)
+        print(v)
         if v >= self.config_change_rate:
             self.config[0] = random.random(0.5, 4)
+            print(self.config[0])
             # cpu cores number
         v = random.randrange(0, 1)
+        print(v)
         if v >= self.config_change_rate:
             self.config[1] = random.random(2, 8)
+            print(self.config[1])
             # memory usage
 
     def init_config(self):
