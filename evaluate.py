@@ -68,6 +68,8 @@ def measure_d(workload_store, url_workload, config, loop_time):
             corr = list()
             for k in range(0, min(len(workload), len(workload_store))):
                 # distance = 1 - spatial.distance.cosine(workload_store[k:k + 1], workload[i:i + 1])
+                print(np.array(workload_store[k:k + 1])[0])
+                print(np.array(workload[i:i + 1])[0])
                 p_corr, _ = pearsonr(np.array(workload_store[k:k + 1])[0], np.array(workload[i:i + 1])[0])
                 distance = 1 - p_corr
                 corr.append(distance)
@@ -86,8 +88,6 @@ def measure_d(workload_store, url_workload, config, loop_time):
         print(corr_max)
         url_workload['diversity'] = corr_max
         url_workload['diversity'] = url_workload['diversity'].rank(pct=True)
-        print("url_workload:")
-        print(url_workload)
 
     if loop_time < 1:
         url_workload['diversity'] = 0
@@ -97,7 +97,7 @@ def measure_d(workload_store, url_workload, config, loop_time):
     else:
         # print(workload_store)
         # print(workload)
-        workload_store.append(workload)
+        workload_store = workload_store.append(workload)
         # workload_store = workload_store.drop(columns=['time_period'])
     url_workload = url_workload.reset_index()
     # print(url_workload)

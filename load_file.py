@@ -140,7 +140,7 @@ def load_file(log_address, perf_address, period_size):
         split_list.append([action, url, response, time_period])
 
     log = pd.DataFrame(split_list, columns=['action', 'url', 'respondCode', 'time_period'])
-    log = log[log['url'].isin(['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x9a', 'x9b', 'x9c', 'x9d'])]
+    log = log[log['url'].isin(['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x9b', 'x9c', 'x9d'])]
     # search_value = ['POST', 'GET']
     # log = log.loc[log.url.str.contains('|'.join(search_value)), :]
     # print(log)
