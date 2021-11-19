@@ -162,7 +162,7 @@ def generate_workload(abstracted_log):
     workload_count = workload_count.drop_duplicates(['combine'])
     url_workload = workload_count.pivot(index='time_period', columns='url', values='n').fillna(0)
     url_set = ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x9b', 'x9c', 'x9d']
-    if len(url_workload.columns)<12:
+    if len(url_workload.columns) < 12:
         for index, element in enumerate(url_set):
             if url_set[index] not in url_workload.columns:
                 url_workload.insert(index, url_set[index], [0] * url_workload.sharp[0])
