@@ -54,9 +54,10 @@ def main():
     workload.evaluate_workload()
     workload.sort_workload()
     workload.generate_running_file()
+    print(workload.config)
+    print(workload.config_change_rate)
     workload.set_config()
-    history_config = workload.config.copy()
-    workload_store = workload.workload_store.copy()
+    print(workload.config)
     os.system('sshpass -p \'xyj0731\' scp ratio.csv yxia@sense03:~/mutation_workload')
 
     for loop_time in range(1, 144):
@@ -65,10 +66,13 @@ def main():
         today = datetime.now(pytz.utc).date()
         logFileAddress = '/home/users/yzeng/localhost_access_log.' + str(today) + '.txt'
         perfFileAddress = '/home/users/yzeng/mutation_workload/screenlog.0'
+        history_config = workload.config.copy()
+        workload_store = workload.workload_store.copy()
         workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
                                                    perfFileAddress=perfFileAddress,
                                                    loop_time=loop_time, workload_store=workload_store)
         workload.config = history_config
+        workload.workload_store = workload_store
         if datetime.now(pytz.utc).hour >= 23:
             if datetime.now(pytz.utc).minute >= 45:
                 print('wait date change')
@@ -111,8 +115,7 @@ def main():
         workload.sort_workload()
         workload.generate_running_file()
         workload.set_config()
-        history_config = workload.config.copy()
-        workload_store = workload.workload_store.copy()
+
         os.system('sshpass -p \'xyj0731\' scp ratio.csv yxia@sense03:~/mutation_workload')
 
 

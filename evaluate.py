@@ -53,7 +53,6 @@ def measure_s(signature, perf, config, model):
     result = model.predict(series_input_train)
     signature['stability'] = 1 - abs(target - result)/target
     rate = 1 - statistics.median(signature['stability'])
-    print(statistics.median(signature['stability']))
     # print(signature[['time_period', 'stability']])
     signature['stability'] = signature['stability'].rank(pct=True)
     return signature, rate
