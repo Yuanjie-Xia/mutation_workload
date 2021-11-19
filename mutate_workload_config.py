@@ -4,6 +4,7 @@ import numpy as np
 import random
 import keras
 from keras import layers
+import math
 
 
 class WorkLoad:
@@ -118,7 +119,7 @@ class WorkLoad:
                 line[v2] = temp
 
             for index, element in enumerate(line):
-                line[index] = ((line[index] - 0) / (max_value - 0)) * 50
+                line[index] = math.log(((line[index] - 0) / (max_value - 0)) * 50)
                 if line[index] < 0:
                     line[index] = 10
             self.selected_workload.iloc[[i]] = [line]
