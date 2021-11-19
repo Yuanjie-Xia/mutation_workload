@@ -119,7 +119,8 @@ class WorkLoad:
 
             for index, element in enumerate(line):
                 line[index] = ((line[index] - 0) / (max_value - 0)) * 50
-                line[index] = line[index] + 1
+                if line[index] < 0:
+                    line[index] = 10
             self.selected_workload.iloc[[i]] = [line]
         print("selected_workload:")
         print(self.selected_workload)
