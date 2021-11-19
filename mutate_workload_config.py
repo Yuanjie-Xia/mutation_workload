@@ -78,11 +78,9 @@ class WorkLoad:
             self.selected_workload = selection_df[0:2]
         else:
             self.selected_workload = selection_df
-        self.selected_workload['x8'] = self.selected_workload['x8'] - self.selected_workload['x5'] - self.selected_workload['x6'] - self.selected_workload['x9'] - self.selected_workload['x9b']
-        self.selected_workload['x9'] = self.selected_workload['x9']/2
-        self.selected_workload['x9a'] = self.selected_workload['x9']
-        print('selected workload:')
-        print(self.selected_workload)
+        self.selected_workload['x9'] = self.selected_workload['x9'] / 2
+        self.selected_workload.insert(9, "x9a", self.selected_workload['x9'])
+        self.selected_workload['x8'] = self.selected_workload['x8'] - self.selected_workload['x6'] - self.selected_workload['x9']
         self.selected_workload = \
             self.selected_workload.loc[:, self.selected_workload.columns.str.startswith('x')]
         for i in range(0, np.size(self.selected_workload.columns)):
@@ -99,26 +97,26 @@ class WorkLoad:
             line = self.selected_workload[self.selected_workload.columns[i]].to_numpy()
             if v == 1:
                 v0 = random.randint(0, 1)
-                line[v0] = random.randint(int(line[v0]/2), int(3*line[v0]/2))
+                line[v0] = random.randint(int(line[v0] / 2), int(3 * line[v0] / 2))
         self.selected_workload[self.selected_workload.columns[i]] = line
 
         for i in range(0, self.selected_workload.shape[0]):
-            line = self.selected_workload.iloc[[i]]
-            max_value = line.max()
-            min_value = line.min()
-            print(max_value)
-            for j in range(0, self.selected_workload.shape[1]):
-                if line.iloc[i, j] < 5:
-                    line.iloc[i, j] = line.iloc[i, j] + 5
-                print(line.iloc[i, j])
-                line.iloc[i, j] = ((line.iloc[i, j] - min_value)/(max_value - min_value))*10
-        self.selected_workload.iloc[[i]] = line
+            line = self.selected_workload.iloc[[i]].to_numpy()[0]
+            max_value = max(line)
+            min_value = min(line)
+            for index, element in enumerate(line):
+                if line[index] < 5:
+                    line[index] = 5
+                line[index] = ((line[index] - min_value) / (max_value - min_value)) * 10
+            self.selected_workload.iloc[[i]] = [line]
+
+        print(self.selected_workload)
 
     def generate_running_file(self):
         self.selected_workload.to_csv("ratio.csv", index=False)
 
     def b_cnn(self):
-        max_len = len(self.signature.loc[:, self.signature.columns.str.startswith('x')].columns)+len(self.config)
+        max_len = len(self.signature.loc[:, self.signature.columns.str.startswith('x')].columns) + len(self.config)
         # A integer input for vocab indices.
         # inputs = keras.Input(shape=(series_input.shape[1], 1,))
         inputs = keras.Input(shape=(1, max_len), dtype="float32")
@@ -139,4 +137,3 @@ class WorkLoad:
         # Compile the model with binary crossentropy loss and an adam optimizer.
         model.compile(loss="mse", optimizer="adam", metrics=["mape"])
         self.model = model
-

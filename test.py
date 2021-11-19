@@ -1,25 +1,27 @@
-import urllib.request
 import os
+import urllib
 from time import sleep
 
+import mutate_workload_config
 
-os.system('sudo docker stop teastore-all')
-os.system('sudo docker rm teastore-all')
-os.system('sudo docker run --cpus=2 -m=4GB -e "DB_HOST=sense02" -p 8080:8080 -d '
-            '--name teastore-all descartesresearch/teastore-all')
-os.system('sudo docker cp ~/mutation_workload/server.xml teastore-all:/usr/local/tomcat/conf')
-os.system('sudo docker restart teastore-all')
-#code = urllib.request.urlopen("192.168.165.201:8080/tools.descartes.teastore.webui").getcode()
-for i in range(1,100):
-    try:
-        code = urllib.request.urlopen("http://192.168.165.201:8080/tools.descartes.teastore.webui").getcode()
-        print(code)
-        if code == 200:
-            break
-    except urllib.error.URLError:
-        print("web not avaliable yet")
-    finally:
-        sleep(3)
-        pass
-    if i > 90:
-        print("application cannot start")
+
+def main():
+    workload_store = []
+    logFileAddress = 'test_set/localhost_access_log.2021-11-05.txt'
+    perfFileAddress = 'test_set/screenlog.0'
+    window_size = 10
+    workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
+                                               perfFileAddress=perfFileAddress,
+                                               loop_time=0, workload_store=workload_store)
+    workload.init_config()
+    workload.load_data()
+    workload.set_config()
+    workload.b_cnn()
+    workload.evaluate_workload()
+    workload.sort_workload()
+    workload.generate_running_file()
+    workload.set_config()
+
+
+if __name__ == "__main__":
+    main()
