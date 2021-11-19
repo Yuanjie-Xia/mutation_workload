@@ -112,6 +112,7 @@ def main():
         workload.sort_workload()
         workload.generate_running_file()
         workload.set_config()
+        print(workload.config)
 
         os.system('sshpass -p \'xyj0731\' scp ratio.csv yxia@sense03:~/mutation_workload')
 
