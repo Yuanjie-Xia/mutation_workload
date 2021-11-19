@@ -20,6 +20,7 @@ def main():
     workload.evaluate_workload()
     workload.sort_workload()
     workload.generate_running_file()
+    print(workload.config_change_rate)
     workload.set_config()
 
 
