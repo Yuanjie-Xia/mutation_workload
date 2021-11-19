@@ -49,14 +49,9 @@ class WorkLoad:
 
     def evaluate_workload(self):
         self.signature = evaluate.hierarchical_clustering(self.signature)
-        print("after hierarchical clustering:")
         print(self.signature)
         self.signature, self.config_change_rate = evaluate.measure_s(self.signature, self.perf_data,
                                                                      self.config, self.model)
-        print("after measure_s:")
-        print(self.signature)
-        print(self.config_change_rate)
-        print(self.url_fr)
         self.url_fr, self.workload_store \
             = evaluate.measure_d(self.workload_store, self.url_fr, self.config, self.loop_time)
         # self.workload_store['cpulimit'] = self.config[0]

@@ -60,14 +60,16 @@ def measure_s(signature, perf, config, model):
 
 def measure_d(workload_store, url_workload, config, loop_time):
     workload = url_workload.copy()
-    print(workload)
     # corr_max = []
     if len(workload_store) > 0:
         for i in range(0, len(url_workload)):
             corr = []
             for k in range(0, len(workload_store)):
                 # distance = 1 - spatial.distance.cosine(workload_store[k:k + 1], workload[i:i + 1])
+                print(np.array(workload_store[k:k + 1])[0])
+                print(np.array(workload[i:i + 1])[0])
                 p_corr, _ = pearsonr(np.array(workload_store[k:k + 1])[0], np.array(workload[i:i + 1])[0])
+                print(p_corr)
                 distance = 1 - p_corr
                 corr.append(distance)
         # standardized
@@ -84,18 +86,21 @@ def measure_d(workload_store, url_workload, config, loop_time):
         print(corr)
         url_workload['diversity'] = corr
         url_workload['diversity'] = url_workload['diversity'].rank(pct=True)
+        print("url_workload:")
         print(url_workload)
 
-    workload['cpulimit'] = config[0]
-    workload['memorylimit'] = config[1]
     if loop_time < 1:
         url_workload['diversity'] = 0
+        workload['cpulimit'] = config[0]
+        workload['memorylimit'] = config[1]
         workload_store = workload
     else:
-        print(workload_store)
-        print(workload)
+        workload['cpulimit'] = config[0]
+        workload['memorylimit'] = config[1]
+        # print(workload_store)
+        # print(workload)
         workload_store = workload_store.append(workload)
         # workload_store = workload_store.drop(columns=['time_period'])
     url_workload = url_workload.reset_index()
-    print(url_workload)
+    # print(url_workload)
     return url_workload, workload_store
