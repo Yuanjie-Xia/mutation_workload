@@ -66,7 +66,7 @@ def measure_d(workload_store, url_workload, config, loop_time):
             workload['cpulimit'] = config[0]
             workload['memorylimit'] = config[1]
             corr = []
-            for k in range(0, len(workload_store)):
+            for k in range(0, len(workload)):
                 # distance = 1 - spatial.distance.cosine(workload_store[k:k + 1], workload[i:i + 1])
                 print(np.array(workload_store[k:k + 1])[0])
                 print(np.array(workload[i:i + 1])[0])
