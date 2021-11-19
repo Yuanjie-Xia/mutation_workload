@@ -8,7 +8,7 @@ from keras import layers
 
 class WorkLoad:
     def __init__(self, time_window_length, system, logFileAddress, perfFileAddress,
-                 loop_time, workload_store=[], log_data=[], perf_data=[],
+                 loop_time, workload_store, log_data=[], perf_data=[],
                  signature=[], url_fr=[], selected_workload=[], config=[], model=[], config_change_rate=0.5):
         self.time_window_length = time_window_length
         self.logFileAddress = logFileAddress
@@ -49,7 +49,6 @@ class WorkLoad:
 
     def evaluate_workload(self):
         self.signature = evaluate.hierarchical_clustering(self.signature)
-        print(self.signature)
         self.signature, self.config_change_rate = evaluate.measure_s(self.signature, self.perf_data,
                                                                      self.config, self.model)
         self.url_fr, self.workload_store \
