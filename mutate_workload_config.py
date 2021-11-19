@@ -109,7 +109,7 @@ class WorkLoad:
                     line[index] = 5
                 line[index] = ((line[index] - min_value) / (max_value - min_value)) * 10
             self.selected_workload.iloc[[i]] = [line]
-
+        print("selected_workload:")
         print(self.selected_workload)
 
     def generate_running_file(self):
