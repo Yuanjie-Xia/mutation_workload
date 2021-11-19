@@ -60,6 +60,7 @@ def main():
     os.system('sshpass -p \'xyj0731\' scp ratio.csv yxia@sense03:~/mutation_workload')
 
     for loop_time in range(1, 144):
+        break
         print('looptime:' + str(loop_time))
         today = datetime.now(pytz.utc).date()
         logFileAddress = '/home/users/yzeng/localhost_access_log.' + str(today) + '.txt'
