@@ -96,16 +96,24 @@ class WorkLoad:
                 self.selected_workload[self.selected_workload.columns[i]] = line
 
         for i in range(0, np.size(self.selected_workload.columns)):
-            v = random.randint(0, 1)
+            v = random.randint(0, 4)
             line = self.selected_workload[self.selected_workload.columns[i]].to_numpy()
             if v == 1:
                 v0 = random.randint(0, 1)
-                line[v0] = random.randint(int(line[v0] / 2), int(3 * line[v0] / 2))
+                line[v0] = random.randint(int(line[v0] - 10), int(line[v0] + 10))
         self.selected_workload[self.selected_workload.columns[i]] = line
 
         for i in range(0, self.selected_workload.shape[0]):
             line = self.selected_workload.iloc[[i]].to_numpy()[0]
             max_value = max(line)
+            v = random.randint(0, 4)
+            if v == 1:
+                v1 = random.randint(0, len(line))
+                v2 = random.randint(0, len(line))
+                temp = line[v1]
+                line[v1] = line[v2]
+                line[v2] = temp
+
             for index, element in enumerate(line):
                 line[index] = ((line[index] - 0) / (max_value - 0)) * 100
                 line[index] = line[index] + 1
