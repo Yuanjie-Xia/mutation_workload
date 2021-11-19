@@ -165,6 +165,6 @@ def generate_workload(abstracted_log):
     if len(url_workload.columns) < 12:
         for index, element in enumerate(url_set):
             if url_set[index] not in url_workload.columns:
-                url_workload.insert(index, url_set[index], [0] * url_workload.sharp[0])
+                url_workload.insert(index, url_set[index], [0] * url_workload.shape[0])
 
     return workload_signature, url_workload
