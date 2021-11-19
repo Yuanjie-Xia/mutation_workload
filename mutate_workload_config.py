@@ -78,9 +78,12 @@ class WorkLoad:
             self.selected_workload = selection_df[0:2]
         else:
             self.selected_workload = selection_df
-        self.selected_workload['x8'] = self.selected_workload['x8'] - self.selected_workload['x9']
         self.selected_workload['x9'] = self.selected_workload['x9'] / 2
         self.selected_workload.insert(9, "x9a", self.selected_workload['x9'])
+        self.selected_workload['x8'] = self.selected_workload['x8'] - self.selected_workload['x9'] - \
+                                       self.selected_workload['x9b']
+        if 'x2302' in self.signature.columns:
+            self.selected_workload['x8'] = self.selected_workload['x8'] - self.signature['x2302']
         self.selected_workload = \
             self.selected_workload.loc[:, self.selected_workload.columns.str.startswith('x')]
         for i in range(0, np.size(self.selected_workload.columns)):
@@ -103,7 +106,6 @@ class WorkLoad:
         for i in range(0, self.selected_workload.shape[0]):
             line = self.selected_workload.iloc[[i]].to_numpy()[0]
             max_value = max(line)
-            min_value = min(line)
             for index, element in enumerate(line):
                 line[index] = ((line[index] - 0) / (max_value - 0)) * 100
                 line[index] = line[index] + 1
