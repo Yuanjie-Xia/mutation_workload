@@ -68,8 +68,6 @@ def measure_d(workload_store, url_workload, config, loop_time):
             corr = []
             for k in range(0, len(workload)):
                 # distance = 1 - spatial.distance.cosine(workload_store[k:k + 1], workload[i:i + 1])
-                print(np.array(workload_store[k:k + 1])[0])
-                print(np.array(workload[i:i + 1])[0])
                 p_corr, _ = pearsonr(np.array(workload_store[k:k + 1])[0], np.array(workload[i:i + 1])[0])
                 print(p_corr)
                 distance = 1 - p_corr
