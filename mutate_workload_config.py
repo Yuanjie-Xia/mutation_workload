@@ -119,7 +119,10 @@ class WorkLoad:
                 line[v2] = temp
 
             for index, element in enumerate(line):
-                line[index] = math.log(((line[index] - 0) / (max_value - 0)) * 50)
+                if line[index] > 70:
+                    line[index] = 10
+                    max_value = max(line)
+                line[index] = 100 * math.log((line[index] / max_value) + 1, 10)
                 if line[index] < 0:
                     line[index] = 10
             self.selected_workload.iloc[[i]] = [line]
