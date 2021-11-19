@@ -100,9 +100,10 @@ class WorkLoad:
             if v == 1:
                 v0 = random.randint(0, 1)
                 line[v0] = random.randint(int(line[v0]/2), int(3*line[v0]/2))
-
-            max_value = max(line)
-            min_value = min(line)
+        for i in range(0, self.selected_workload.shape[0]):
+            line = self.selected_workload.iloc[[i]]
+            max_value = line.max()
+            min_value = line.min()
             print(max_value)
             for index, element in enumerate(line):
                 if line[index] < 5:
