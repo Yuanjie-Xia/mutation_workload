@@ -84,8 +84,6 @@ def measure_d(workload_store, url_workload, config, loop_time):
         # normalized
         #rm_d_corr = 1 - (corr_max - min(corr_max)) / (max(corr_max) - min(corr_max))
         # print(rm_d_corr)
-        print("corr:")
-        print(corr_max)
         url_workload['diversity'] = corr_max
         url_workload['diversity'] = url_workload['diversity'].rank(pct=True)
 
