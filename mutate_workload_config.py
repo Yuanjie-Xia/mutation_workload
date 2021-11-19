@@ -87,6 +87,9 @@ class WorkLoad:
             self.selected_workload['x8'] = self.selected_workload['x8'] - self.signature['x2302']
         self.selected_workload = \
             self.selected_workload.loc[:, self.selected_workload.columns.str.startswith('x')]
+
+        print("selected workload before mutate:")
+        print(self.selected_workload)
         for i in range(0, np.size(self.selected_workload.columns)):
             v = random.randint(0, 1)
             if v == 1:
@@ -119,9 +122,9 @@ class WorkLoad:
                 line[v2] = temp
 
             for index, element in enumerate(line):
-                if line[index] > 70:
-                    line[index] = 10
-                    max_value = max(line)
+                # if line[index] > 70:
+                #    line[index] = 10
+                #    max_value = max(line)
                 line[index] = 100 * math.log((line[index] / max_value) + 1, 10)
                 if line[index] < 10:
                     line[index] = 10
