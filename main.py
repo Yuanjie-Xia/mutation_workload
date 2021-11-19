@@ -49,19 +49,16 @@ def main():
     os.system('sudo docker cp teastore-all:/usr/local/tomcat/logs/localhost_access_log.' + str(today) + '.txt ~/')
     os.system('sudo chmod 777 ~/localhost_access_log.' + str(today) + '.txt ~/')
     workload.load_data()
-    workload.set_config()
     workload.b_cnn()
     workload.evaluate_workload()
     workload.sort_workload()
     workload.generate_running_file()
-    print(workload.config)
-    print(workload.config_change_rate)
     workload.set_config()
+    print('configuration:')
     print(workload.config)
     os.system('sshpass -p \'xyj0731\' scp ratio.csv yxia@sense03:~/mutation_workload')
 
     for loop_time in range(1, 144):
-        break
         print('looptime:' + str(loop_time))
         today = datetime.now(pytz.utc).date()
         logFileAddress = '/home/users/yzeng/localhost_access_log.' + str(today) + '.txt'
