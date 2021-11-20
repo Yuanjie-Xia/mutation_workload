@@ -48,6 +48,7 @@ def measure_s(signature, perf, config, model):
     # create target part
     target = perf.loc[perf['time_period'] <= series_input_train.shape[0]]['cpu']
     target = np.expand_dims(target, axis=1)
+    series_input_train = series_input_train[0: len(target)]
     # cnn training model
     model.fit(series_input_train, target, batch_size=32, epochs=100)
     result = model.predict(series_input_train)

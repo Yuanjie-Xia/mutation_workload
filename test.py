@@ -7,8 +7,8 @@ import mutate_workload_config
 
 def main():
     workload_store = []
-    logFileAddress = '/home/users/yzeng/localhost_access_log.2021-11-19.txt'
-    perfFileAddress = '/home/users/yzeng/screenlog7.0'
+    logFileAddress = 'test_set/localhost_access_log.2021-11-05.txt'
+    perfFileAddress = 'test_set/screenlog.0'
     window_size = 10
     workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
                                                perfFileAddress=perfFileAddress,
