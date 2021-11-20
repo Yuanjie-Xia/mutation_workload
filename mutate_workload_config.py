@@ -94,9 +94,7 @@ class WorkLoad:
             v = random.randint(0, 1)
             if v == 1:
                 line = self.selected_workload[self.selected_workload.columns[i]].to_numpy()
-                temp = line[1]
-                line[1] = line[0]
-                line[0] = temp
+                line[0], line[1] = line[1], line[0]
                 self.selected_workload[self.selected_workload.columns[i]] = line
 
         for i in range(0, np.size(self.selected_workload.columns)):
@@ -117,18 +115,17 @@ class WorkLoad:
             if v == 1:
                 v1 = random.randint(0, len(line)-1)
                 v2 = random.randint(0, len(line)-1)
-                temp = line[v1]
-                line[v1] = line[v2]
-                line[v2] = temp
+                line[v1], line[v2] = line[v2], line[v1]
 
             for index, element in enumerate(line):
                 # if line[index] > 70:
                 #    line[index] = 10
                 #    max_value = max(line)
-                line[index] = 50 * math.log((line[index] / max_value) + 1, 10)
+                line[index] = 100 * math.log((line[index] / max_value) + 1, 10)
                 if line[index] < 3:
                     line[index] = 5
             self.selected_workload.iloc[[i]] = [line]
+        self.selected_workload['x8'] = self.selected_workload['x8']/3
         print("selected_workload:")
         print(self.selected_workload)
 
