@@ -56,18 +56,18 @@ class WorkLoad:
             = evaluate.measure_d(self.workload_store, self.url_fr, self.config, self.loop_time)
         # self.workload_store['cpulimit'] = self.config[0]
         # self.workload_store['memorylimit'] = self.config[1]
-        self.workload_store.to_csv("/home/users/yzeng/workload_store" + str(self.loop_time) + ".csv")
+        self.workload_store.to_csv("/home/users/yzeng/workload/workload_store" + str(self.loop_time) + ".csv")
         self.signature['diversity'] = self.url_fr['diversity']
         self.signature['measurement'] = abs(self.signature['stability']) + abs(self.signature['diversity'])
         self.url_fr['measurement'] = self.signature['measurement']
         self.url_fr['cluster'] = self.signature['cluster']
-        self.signature.to_csv("/home/users/yzeng/siginature" + str(self.loop_time) + ".csv")
+        self.signature.to_csv("/home/users/yzeng/signature/siginature" + str(self.loop_time) + ".csv")
         print('signature:')
         print(self.signature)
-        self.perf_data.to_csv("/home/users/yzeng/perf" + str(self.loop_time) + ".csv")
+        self.perf_data.to_csv("/home/users/yzeng/perf/perf" + str(self.loop_time) + ".csv")
         print('perf:')
         print(self.perf_data)
-        self.url_fr.to_csv("/home/users/yzeng/urlfr" + str(self.loop_time) + ".csv")
+        self.url_fr.to_csv("/home/users/yzeng/urlfr/urlfr" + str(self.loop_time) + ".csv")
         print('url frenquency:')
         print(self.url_fr)
 
