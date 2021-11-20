@@ -25,43 +25,43 @@ class TeaStoreEvents1(HttpUser):
     def check_database_setup(self):
         self.client.get("/tools.descartes.teastore.webui/database")
 
-    @task(ceil(ratio.iloc[i, 3]))
+    @task(ceil(ratio.iloc[i, 7]))
     def home(self):
         self.client.get("/tools.descartes.teastore.webui/")
 
-    @task(ceil(ratio.iloc[i, 4]))
+    @task(ceil(ratio.iloc[i, 3]))
     def login_page(self):
         self.client.get("/tools.descartes.teastore.webui/login")
 
-    @task(ceil(ratio.iloc[i, 5]))
+    @task(ceil(ratio.iloc[i, 8]))
     def login_action(self):
         self.client.post("/tools.descartes.teastore.webui/loginAction",
                          json={'username': users, 'password': 'password'})
 
-    @task(ceil(ratio.iloc[i, 6]))
+    @task(ceil(ratio.iloc[i, 9]))
     def log_out(self):
         self.client.post("/tools.descartes.teastore.webui/loginAction", json={'logout': ''})
 
-    @task(ceil(ratio.iloc[i, 7]))
+    @task(ceil(ratio.iloc[i, 4]))
     def list_products(self):
         self.client.get("/tools.descartes.teastore.webui/category",
                         json={'category': category, 'page': page})
 
-    @task(ceil(ratio.iloc[i, 8]))
+    @task(ceil(ratio.iloc[i, 5]))
     def look_at_product(self):
         self.client.get("/tools.descartes.teastore.webui/product", json={'id': product})
 
-    @task(ceil(ratio.iloc[i, 9]))
+    @task(ceil(ratio.iloc[i, 10]))
     def adjust_view_count(self):
         self.client.post("/tools.descartes.teastore.webui/category",
                          json={'page': 1, 'category': category, 'number': 30})
 
-    @task(ceil(ratio.iloc[i, 10]))
+    @task(ceil(ratio.iloc[i, 11]))
     def add_product2cart(self):
         self.client.post("/tools.descartes.teastore.webui/cartAction",
                          json={'addToCart': '', 'productid': product})
 
-    @task(ceil(ratio.iloc[i, 11]))
+    @task(ceil(ratio.iloc[i, 6]))
     def check_shopping_cart(self):
         self.client.get("/tools.descartes.teastore.webui/cart")
 

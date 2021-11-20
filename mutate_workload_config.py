@@ -125,9 +125,9 @@ class WorkLoad:
                 # if line[index] > 70:
                 #    line[index] = 10
                 #    max_value = max(line)
-                line[index] = 100 * math.log((line[index] / max_value) + 1, 10)
-                if line[index] < 5:
-                    line[index] = 10
+                line[index] = 50 * math.log((line[index] / max_value) + 1, 10)
+                if line[index] < 3:
+                    line[index] = 5
             self.selected_workload.iloc[[i]] = [line]
         print("selected_workload:")
         print(self.selected_workload)
