@@ -16,7 +16,7 @@ def main():
     window_size = 10
     workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
                                                perfFileAddress=perfFileAddress,
-                                               loop_time=0, workload_store=workload_store)
+                                               loop_time=45, workload_store=workload_store)
     workload.config = [random.randrange(4, 8)/2, random.randrange(2, 8)]
     print('config:')
     print(workload.config)
@@ -59,7 +59,7 @@ def main():
     workload.generate_running_file()
 
     df = pd.read_csv('ratio.csv')
-    for i in range(0, df.shape[0]):
+    for i in range(46, df.shape[0]):
         line = df.iloc[[i]].to_numpy()[0]
         for index, element in enumerate(line):
             # if line[index] > 70:
