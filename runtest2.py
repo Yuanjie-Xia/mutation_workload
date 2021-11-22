@@ -38,7 +38,7 @@ class TeaStoreEvents1(HttpUser):
         self.client.post("/tools.descartes.teastore.webui/loginAction",
                          json={'username': users, 'password': 'password'})
 
-    @task(ceil(ratio.iloc[i, 10]))
+    @task(ceil(ratio.iloc[i, 9]))
     def log_out(self):
         self.client.post("/tools.descartes.teastore.webui/loginAction", json={'logout': ''})
 
@@ -51,12 +51,12 @@ class TeaStoreEvents1(HttpUser):
     def look_at_product(self):
         self.client.get("/tools.descartes.teastore.webui/product", json={'id': product})
 
-    @task(ceil(ratio.iloc[i, 11]))
+    @task(ceil(ratio.iloc[i, 10]))
     def adjust_view_count(self):
         self.client.post("/tools.descartes.teastore.webui/category",
                          json={'page': 1, 'category': category, 'number': 30})
 
-    @task(ceil(ratio.iloc[i, 12]))
+    @task(ceil(ratio.iloc[i, 11]))
     def add_product2cart(self):
         self.client.post("/tools.descartes.teastore.webui/cartAction",
                          json={'addToCart': '', 'productid': product})
@@ -65,6 +65,6 @@ class TeaStoreEvents1(HttpUser):
     def check_shopping_cart(self):
         self.client.get("/tools.descartes.teastore.webui/cart")
 
-    @task(ceil(ratio.iloc[i, 13]))
+    @task(ceil(ratio.iloc[i, 12]))
     def place_an_order(self):
         self.client.post("/tools.descartes.teastore.webui/order")
