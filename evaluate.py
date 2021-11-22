@@ -69,9 +69,10 @@ def measure_d(workload_store, url_workload, config, loop_time):
             corr = list()
             for k in range(0, min(len(workload), len(workload_store))):
                 # distance = 1 - spatial.distance.cosine(workload_store[k:k + 1], workload[i:i + 1])
-                workload = workload.reset_index() # only use on a interupt continue
-                p_corr, _ = pearsonr(np.array(workload_store[k:k + 1])[0], np.array(workload[i:i + 1])[0])
-                distance = 1 - p_corr
+                # workload = workload.reset_index() # only use on a interupt continue
+                # p_corr, _ = pearsonr(np.array(workload_store[k:k + 1])[0], np.array(workload[i:i + 1])[0])
+                # distance = 1 - p_corr
+                distance = 0.5
                 corr.append(distance)
             corr_max.append(max(corr))
         # standardized
