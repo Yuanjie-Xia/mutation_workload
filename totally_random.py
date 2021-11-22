@@ -45,8 +45,10 @@ def main():
     os.system('rm -rf /home/users/yzeng/mutation_workload/screenlog.0')
     os.system('screen -S pids -d -m -L pidstat -p ALL -u -r -d -h -H -I -l ' + str(window_size))
     print("pidstat started")
-    os.system('sshpass -p \'xyj0731\' ssh yxia@sense03 \'~/.local/bin/locust -f ~/mutation_workload/runtest_init.py '
-              '--headless --users 10 --spawn-rate 1 --run-time=600s -H http://192.168.165.201:8080\'')
+    os.system('sshpass -p \'xyj0731\' ssh yxia@sense03 \'~/.local/bin/locust -f ~/mutation_workload/runtest1.py '
+              '--headless --users 10 --spawn-rate 1 --run-time=300s -H http://192.168.165.201:8080\'')
+    os.system('sshpass -p \'xyj0731\' ssh yxia@sense03 \'~/.local/bin/locust -f ~/mutation_workload/runtest2.py '
+              '--headless --users 10 --spawn-rate 1 --run-time=300s -H http://192.168.165.201:8080\'')
     print("running command end here")
     os.system('screen -X -S "pids" quit')
     os.system('rm -rf ' + logFileAddress)
@@ -59,7 +61,7 @@ def main():
     workload.generate_running_file()
 
     df = pd.read_csv('ratio.csv')
-    for i in range(46, df.shape[0]):
+    for i in range(0, df.shape[0]):
         line = df.iloc[[i]].to_numpy()[0]
         for index, element in enumerate(line):
             # if line[index] > 70:
@@ -75,7 +77,7 @@ def main():
     print(workload.config)
     os.system('sshpass -p \'xyj0731\' scp ratio.csv yxia@sense03:~/mutation_workload')
 
-    for loop_time in range(1, 144):
+    for loop_time in range(46, 144):
         print('looptime:' + str(loop_time))
         if datetime.now(pytz.utc).hour >= 23:
             if datetime.now(pytz.utc).minute >= 45:
