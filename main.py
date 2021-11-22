@@ -60,6 +60,10 @@ def main():
 
     for loop_time in range(1, 144):
         print('looptime:' + str(loop_time))
+        if datetime.now(pytz.utc).hour >= 23:
+            if datetime.now(pytz.utc).minute >= 45:
+                print('wait date change')
+                sleep(900)
         today = datetime.now(pytz.utc).date()
         logFileAddress = '/home/users/yzeng/localhost_access_log.' + str(today) + '.txt'
         perfFileAddress = '/home/users/yzeng/mutation_workload/screenlog.0'
@@ -70,10 +74,6 @@ def main():
                                                    loop_time=loop_time, workload_store=workload_store)
         workload.config = history_config
         workload.workload_store = workload_store
-        if datetime.now(pytz.utc).hour >= 23:
-            if datetime.now(pytz.utc).minute >= 45:
-                print('wait date change')
-                sleep(900)
         os.system('sudo mv ~/mutation_workload/screenlog.0 ~/screenlog' + str(loop_time) + '.0')
         os.system('sudo docker stop teastore-all')
         sleep(10)
