@@ -46,7 +46,7 @@ def main():
     os.system('screen -S pids -d -m -L pidstat -p ALL -u -r -d -h -H -I -l ' + str(window_size))
     print("pidstat started")
     os.system('sshpass -p \'xyj0731\' ssh yxia@sense03 \'~/.local/bin/locust -f ~/mutation_workload/runtest_init.py '
-              '--headless --users 10 --spawn-rate 1 --run-time=300s -H http://192.168.165.201:8080\'')
+              '--headless --users 10 --spawn-rate 1 --run-time=600s -H http://192.168.165.201:8080\'')
     print("running command end here")
     os.system('screen -X -S "pids" quit')
     os.system('rm -rf ' + logFileAddress)
