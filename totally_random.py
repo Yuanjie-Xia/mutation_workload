@@ -16,7 +16,7 @@ def main():
     window_size = 10
     workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
                                                perfFileAddress=perfFileAddress,
-                                               loop_time=45, workload_store=workload_store)
+                                               loop_time=0, workload_store=workload_store)
     workload.config = [random.randrange(4, 8)/2, random.randrange(2, 8)]
     print('config:')
     print(workload.config)
@@ -45,9 +45,7 @@ def main():
     os.system('rm -rf /home/users/yzeng/mutation_workload/screenlog.0')
     os.system('screen -S pids -d -m -L pidstat -p ALL -u -r -d -h -H -I -l ' + str(window_size))
     print("pidstat started")
-    os.system('sshpass -p \'xyj0731\' ssh yxia@sense03 \'~/.local/bin/locust -f ~/mutation_workload/runtest1.py '
-              '--headless --users 10 --spawn-rate 1 --run-time=300s -H http://192.168.165.201:8080\'')
-    os.system('sshpass -p \'xyj0731\' ssh yxia@sense03 \'~/.local/bin/locust -f ~/mutation_workload/runtest2.py '
+    os.system('sshpass -p \'xyj0731\' ssh yxia@sense03 \'~/.local/bin/locust -f ~/mutation_workload/runtest_init.py '
               '--headless --users 10 --spawn-rate 1 --run-time=300s -H http://192.168.165.201:8080\'')
     print("running command end here")
     os.system('screen -X -S "pids" quit')
@@ -61,6 +59,8 @@ def main():
     workload.generate_running_file()
 
     df = pd.read_csv('ratio.csv')
+    element_set = ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x9b', 'x9c', 'x9d']
+    df = df[element_set]
     for i in range(0, df.shape[0]):
         line = df.iloc[[i]].to_numpy()[0]
         for index, element in enumerate(line):
@@ -69,6 +69,7 @@ def main():
             #    max_value = max(line)
             line[index] = random.randrange(10, 50)
         df.iloc[[i]] = [line]
+    print(df)
     df.to_csv('ratio.csv')
 
     workload.config = [random.randrange(4, 8)/2, random.randrange(2, 8)]
@@ -77,7 +78,7 @@ def main():
     print(workload.config)
     os.system('sshpass -p \'xyj0731\' scp ratio.csv yxia@sense03:~/mutation_workload')
 
-    for loop_time in range(46, 144):
+    for loop_time in range(1, 144):
         print('looptime:' + str(loop_time))
         if datetime.now(pytz.utc).hour >= 23:
             if datetime.now(pytz.utc).minute >= 45:
@@ -131,7 +132,8 @@ def main():
         workload.sort_workload()
         workload.generate_running_file()
         df = pd.read_csv('ratio.csv')
-
+        element_set = ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x9b', 'x9c', 'x9d']
+        df = df[element_set]
         for i in range(0, df.shape[0]):
             line = df.iloc[[i]].to_numpy()[0]
             for index, element in enumerate(line):
@@ -141,7 +143,7 @@ def main():
                 line[index] = random.randrange(10, 50)
             df.iloc[[i]] = [line]
         df.to_csv('ratio.csv')
-
+        print(df)
         workload.config = [random.randrange(4, 8)/2, random.randrange(2, 8)]
         print(workload.config)
 
