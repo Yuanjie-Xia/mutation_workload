@@ -17,7 +17,9 @@ def main():
     workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
                                                perfFileAddress=perfFileAddress,
                                                loop_time=0, workload_store=workload_store)
-    workload.init_config()
+    workload.config = [random.randrange(4, 8)/2, random.randrange(2, 8)]
+    print('config:')
+    print(workload.config)
     os.system('sudo docker stop teastore-all')
     os.system('sudo docker rm teastore-all')
     os.system('sudo docker run --cpus=' + str(workload.config[0]) + ' -m=' + str(workload.config[1]) +
