@@ -9,7 +9,7 @@ import pandas as pd
 
 
 def main():
-    workload_store = []
+    workload_store = pd.read_csv("/home/users/yzeng/workload/workload_store44.csv")
     today = datetime.now(pytz.utc).date()
     logFileAddress = '/home/users/yzeng/localhost_access_log.' + str(today) + '.txt'
     perfFileAddress = '/home/users/yzeng/mutation_workload/screenlog.0'
