@@ -9,14 +9,14 @@ import pandas as pd
 
 
 def main():
-    workload_store = []
+    workload_store = pd.read_csv('/home/users/yzeng/workload_store53.csv')
     today = datetime.now(pytz.utc).date()
     logFileAddress = '/home/users/yzeng/localhost_access_log.' + str(today) + '.txt'
     perfFileAddress = '/home/users/yzeng/mutation_workload/screenlog.0'
     window_size = 10
     workload = mutate_workload_config.WorkLoad(window_size, 'TeaStore', logFileAddress=logFileAddress,
                                                perfFileAddress=perfFileAddress,
-                                               loop_time=0, workload_store=workload_store)
+                                               loop_time=54, workload_store=workload_store)
     workload.config = [random.randrange(4, 8)/2, random.randrange(2, 8)]
     print('config:')
     print(workload.config)
@@ -78,7 +78,7 @@ def main():
     print(workload.config)
     os.system('sshpass -p \'xyj0731\' scp ratio.csv yxia@sense03:~/mutation_workload')
 
-    for loop_time in range(1, 144):
+    for loop_time in range(55, 144):
         print('looptime:' + str(loop_time))
         if datetime.now(pytz.utc).hour >= 23:
             if datetime.now(pytz.utc).minute >= 45:
