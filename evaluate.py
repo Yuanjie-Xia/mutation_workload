@@ -44,15 +44,17 @@ def measure_s(signature, perf, config, model):
     series_input_train = signature.loc[:, signature.columns.str.startswith('x')].copy()
     series_input_train['cpulimit'] = config[0]
     series_input_train['memorylimit'] = config[1]
+    series_input_train= series_input_train.to_numpy()
     series_input_train = np.expand_dims(series_input_train, axis=1)
     # create target part
-    target = perf.loc[perf['time_period'] <= series_input_train.shape[0]]['cpu']
+    target = perf.loc[perf['time_period'] <= series_input_train.shape[0]]['cpu'].to_numpy()
     target = np.expand_dims(target, axis=1)
     series_input_train = series_input_train[0: len(target)]
     # cnn training model
     model.fit(series_input_train, target, batch_size=32, epochs=100)
     result = model.predict(series_input_train)
-    signature['stability'] = 1 - abs(target - result)/target
+    # signature['stability'] = 1 - abs(target - result)/target
+    signature['stability'] = 0.5
     rate = 1 - statistics.median(signature['stability'])
     # print(signature[['time_period', 'stability']])
     signature['stability'] = signature['stability'].rank(pct=True)

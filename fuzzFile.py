@@ -296,8 +296,8 @@ def analysis_data(logFileAdd, perfFileAdd, workload_store, looptime):
     #print(diversity_value)
     stability_value['diversity'] = diversity_value['diversity'].to_numpy()
     stability_value['measurement'] = abs(stability_value['diversity']) + abs(stability_value['stability'])
-    stability_value.to_csv('~/clusterData/evaluate' + str(looptime) + '.csv', index=False)
-    print('evaluate detail:')
+    stability_value.to_csv('~/clusterData/rq' + str(looptime) + '.csv', index=False)
+    print('rq detail:')
     print(stability_value)
     selection_df = stability_value.sort_values(by=['measurement'], ascending=False)
     selected_workload = selection_df[0:2]
