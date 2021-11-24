@@ -57,18 +57,20 @@ model.compile(loss="mse", optimizer="adam", metrics=["mape"])
 model1.compile(loss="mse", optimizer="adam", metrics=["mape"])
 error_tread = []
 error_tread_r = []
-for i in tqdm(range(1, 10)):
-    training_set = ori.iloc[int((i - 1) * len(ori_b) / 10):int(i * len(ori_b) / 10)]
-    training_set_b = ori_b.iloc[int((i - 1) * len(ori_b) / 10):int(i * len(ori_b) / 10)]
+for j in tqdm(range(1, 10)):
+    training_set = ori.iloc[int((j - 1) * len(ori_b) / 10):int(j * len(ori_b) / 10)]
+    training_set_b = ori_b.iloc[int((j - 1) * len(ori_b) / 10):int(j * len(ori_b) / 10)]
     sum = []
     sum_b = []
-    for j in tqdm(range(int((i-1) * len(ori_b) / 10), int(i * len(ori_b) / 10)+1)):
+    for k in tqdm(range(len(training_set))):
         # model.compile(loss="mse", optimizer="adam", metrics=["mape"])
-        training_set = training_set.drop([j])
-        test_set = training_set.iloc[[j]]
-        training_set_x = training_set.iloc[:, 0:13].to_numpy()
+        print(training_set.iloc[[k]])
+        test_set = training_set.iloc[[k]]
+        training_set_copy = training_set.copy()
+        training_set_copy = training_set_copy.drop([k])
+        training_set_x = training_set_copy.iloc[:, 0:13].to_numpy()
         training_set_x = np.expand_dims(training_set_x, axis=1)
-        training_set_y = training_set.iloc[:, 14].to_numpy()
+        training_set_y = training_set_copy.iloc[:, 14].to_numpy()
         training_set_y = np.expand_dims(training_set_y, axis=1)
         test_set_x = test_set.iloc[:, 0:13].to_numpy()
         test_set_x = np.expand_dims(test_set_x, axis=1)
@@ -79,13 +81,14 @@ for i in tqdm(range(1, 10)):
         error = (result - test_set_y) / result
         sum.append(error)
 
-    for k in tqdm(range(int((i - 1) * len(ori_b) / 10), int(i * len(ori_b) / 10) + 1)):
+    for q in tqdm(range(len(training_set))):
         # model.compile(loss="mse", optimizer="adam", metrics=["mape"])
-        training_set_b = training_set_b.drop([k])
-        test_set_b = training_set_b.iloc[[k]]
-        training_set_x_b = training_set_b.iloc[:, 0:13].to_numpy()
+        test_set_b = training_set_b.iloc[[q]]
+        training_set_b_copy = training_set_b.copy()
+        training_set_b_copy = training_set_b_copy.drop([q])
+        training_set_x_b = training_set_b_copy.iloc[:, 0:13].to_numpy()
         training_set_x_b = np.expand_dims(training_set_x_b, axis=1)
-        training_set_y_b = training_set_b.iloc[:, 14].to_numpy()
+        training_set_y_b = training_set_b_copy.iloc[:, 14].to_numpy()
         training_set_y_b = np.expand_dims(training_set_y_b, axis=1)
         test_set_x_b = test_set_b.iloc[:, 0:13].to_numpy()
         test_set_x_b = np.expand_dims(test_set_x_b, axis=1)
