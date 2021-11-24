@@ -64,7 +64,7 @@ for j in tqdm(range(1, 10)):
     sum_b = []
     for k in tqdm(range(len(training_set))):
         # model.compile(loss="mse", optimizer="adam", metrics=["mape"])
-        print(training_set.iloc[[k]])
+        # print(training_set.iloc[[k]])
         test_set = training_set.iloc[[k]]
         training_set_copy = training_set.copy()
         training_set_copy = training_set_copy.drop([k])
