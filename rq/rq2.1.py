@@ -51,9 +51,10 @@ x = layers.Dropout(0.5)(x)
 # We project onto a single unit output layer, and squash it with a sigmoid:
 predictions = layers.Dense(1, activation="linear", name="predictions")(x)
 model = keras.Model(inputs, predictions)
+model1 = keras.Model(inputs, predictions)
 # Compile the model with binary crossentropy loss and an adam optimizer.
 model.compile(loss="mse", optimizer="adam", metrics=["mape"])
-
+model1.compile(loss="mse", optimizer="adam", metrics=["mape"])
 error_tread = []
 error_tread_r = []
 for i in tqdm(range(1, 10)):
@@ -62,7 +63,7 @@ for i in tqdm(range(1, 10)):
     sum = []
     sum_b = []
     for j in tqdm(range(int((i-1) * len(ori_b) / 10), int(i * len(ori_b) / 10)+1)):
-        model.compile(loss="mse", optimizer="adam", metrics=["mape"])
+        # model.compile(loss="mse", optimizer="adam", metrics=["mape"])
         training_set = training_set.drop([j])
         test_set = training_set.iloc[[j]]
         training_set_x = training_set.iloc[:, 0:13].to_numpy()
@@ -79,7 +80,7 @@ for i in tqdm(range(1, 10)):
         sum.append(error)
 
     for k in tqdm(range(int((i - 1) * len(ori_b) / 10), int(i * len(ori_b) / 10) + 1)):
-        model.compile(loss="mse", optimizer="adam", metrics=["mape"])
+        # model.compile(loss="mse", optimizer="adam", metrics=["mape"])
         training_set_b = training_set_b.drop([k])
         test_set_b = training_set_b.iloc[[k]]
         training_set_x_b = training_set_b.iloc[:, 0:13].to_numpy()
@@ -90,13 +91,15 @@ for i in tqdm(range(1, 10)):
         test_set_x_b = np.expand_dims(test_set_x_b, axis=1)
         test_set_y_b = test_set_b.iloc[:, 14].to_numpy()
         test_set_y_b = np.expand_dims(test_set_y_b, axis=1)
-        model.fit(training_set_x_b, training_set_y_b, batch_size=32, epochs=100, verbose=0)
-        result = model.predict(test_set_x_b)
+        model1.fit(training_set_x_b, training_set_y_b, batch_size=32, epochs=100, verbose=0)
+        result = model1.predict(test_set_x_b)
         error = (result - test_set_y_b) / result
         sum_b.append(error)
 
     error_tread.append(median(sum))
     error_tread_r.append(median(sum_b))
 
+error_tread.to_csv('error0.csv')
+error_tread_r.to_csv('error1.csv')
 print(error_tread)
 print(error_tread_r)
