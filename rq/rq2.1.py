@@ -78,9 +78,10 @@ for i in tqdm(range(1, 10)):
         error = (result - test_set_y) / result
         sum.append(error)
 
+    for k in tqdm(range(int((i - 1) * len(ori_b) / 10), int(i * len(ori_b) / 10) + 1)):
         model.compile(loss="mse", optimizer="adam", metrics=["mape"])
-        training_set_b = training_set_b.drop([j])
-        test_set_b = training_set_b.iloc[[j]]
+        training_set_b = training_set_b.drop([k])
+        test_set_b = training_set_b.iloc[[k]]
         training_set_x_b = training_set_b.iloc[:, 0:13].to_numpy()
         training_set_x_b = np.expand_dims(training_set_x_b, axis=1)
         training_set_y_b = training_set_b.iloc[:, 14].to_numpy()
