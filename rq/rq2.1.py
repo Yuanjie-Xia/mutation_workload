@@ -18,6 +18,7 @@ for i in range(0, 143):
     else:
         ori_b = ori_b.append(url_b)
 
+ori_b = ori_b.reset_index()
 element_set = ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x9b', 'x9c', 'x9d', 'cpulimit', 'memorylimit', 'perf']
 ori_b = ori_b[element_set]
 
@@ -34,6 +35,7 @@ for i in range(0, 143):
     else:
         ori = ori.append(url)
 
+ori = ori.reset_index()
 element_set = ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x9b', 'x9c', 'x9d', 'cpulimit', 'memorylimit', 'perf']
 ori = ori[element_set]
 
@@ -64,7 +66,7 @@ for j in tqdm(range(1, 10)):
     sum_b = []
     for k in tqdm(range(len(training_set))):
         # model.compile(loss="mse", optimizer="adam", metrics=["mape"])
-        # print(training_set.iloc[[k]])
+        # print(training_set.iloc[[55]])
         test_set = training_set.iloc[[k]]
         training_set_copy = training_set.copy()
         training_set_copy = training_set_copy.drop([k])
