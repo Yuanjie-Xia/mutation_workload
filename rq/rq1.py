@@ -10,8 +10,8 @@ for i in range(0, 143):
     perf = pd.read_csv('data/mutate/perf/perf' + str(i) + '.csv')
     url['perf'] = perf['cpu']
     workload = pd.read_csv('data/mutate/workload/workload_store'+ str(i) +'.csv')
-    url['cpulimit'] = workload['cpulimit'][0]
-    url['memorylimit'] = workload['memorylimit'][0]
+    url['cpulimit'] = workload['cpulimit'][len(workload['cpulimit'])-1]
+    url['memorylimit'] = workload['memorylimit'][len(workload['memorylimit'])-1]
     if i == 0:
         ori = url
     else:
