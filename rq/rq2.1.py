@@ -60,11 +60,13 @@ model1.compile(loss="mse", optimizer="adam", metrics=["mape"])
 error_tread = []
 error_tread_r = []
 for j in tqdm(range(1, 10)):
-    training_set = ori.iloc[int((j - 1) * len(ori_b) / 10):int(j * len(ori_b) / 10)]
-    training_set_b = ori_b.iloc[int((j - 1) * len(ori_b) / 10):int(j * len(ori_b) / 10)]
+    training_set = ori.iloc[int((j - 1) * len(ori_b) / 10):int(j * len(ori_b) / 10)].copy()
+    training_set_b = ori_b.iloc[int((j - 1) * len(ori_b) / 10):int(j * len(ori_b) / 10)].copy()
+    training_set = training_set.reset_index()
+    training_set_b = training_set_b.reset_index()
     sum = []
     sum_b = []
-    for k in tqdm(range(int((j - 1) * len(ori_b) / 10),int(j * len(ori_b) / 10))):
+    for k in tqdm(range(len(training_set)-1, len(training_set))):
         # model.compile(loss="mse", optimizer="adam", metrics=["mape"])
         # print(training_set.iloc[[55]])
         test_set = training_set.iloc[[k]]
@@ -83,7 +85,7 @@ for j in tqdm(range(1, 10)):
         error = (result - test_set_y) / result
         sum.append(error)
 
-    for q in tqdm(range(int((j - 1) * len(ori_b) / 10), int(j * len(ori_b) / 10))):
+    for q in tqdm(range(len(training_set)-1, len(training_set_b))):
         # model.compile(loss="mse", optimizer="adam", metrics=["mape"])
         test_set_b = training_set_b.iloc[[q]]
         training_set_b_copy = training_set_b.copy()
