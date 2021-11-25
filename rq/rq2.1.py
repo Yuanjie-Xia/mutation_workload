@@ -66,7 +66,7 @@ for j in tqdm(range(1, 10)):
     training_set_b = training_set_b.reset_index()
     sum = []
     sum_b = []
-    for k in tqdm(range(len(training_set)-1, len(training_set))):
+    for k in tqdm(range(len(training_set))):
         # model.compile(loss="mse", optimizer="adam", metrics=["mape"])
         # print(training_set.iloc[[55]])
         test_set = training_set.iloc[[k]]
@@ -85,7 +85,7 @@ for j in tqdm(range(1, 10)):
         error = (result - test_set_y) / result
         sum.append(error)
 
-    for q in tqdm(range(len(training_set)-1, len(training_set_b))):
+    for q in tqdm(range(len(training_set_b))):
         # model.compile(loss="mse", optimizer="adam", metrics=["mape"])
         test_set_b = training_set_b.iloc[[q]]
         training_set_b_copy = training_set_b.copy()
