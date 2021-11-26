@@ -4,6 +4,7 @@ from keras import layers
 import numpy as np
 from statistics import median
 from tqdm import tqdm
+import csv
 
 ori_b = []
 for i in range(0, 143):
@@ -59,7 +60,7 @@ model.compile(loss="mse", optimizer="adam", metrics=["mape"])
 model1.compile(loss="mse", optimizer="adam", metrics=["mape"])
 error_tread = []
 error_tread_r = []
-for j in tqdm(range(1, 11)):
+for j in tqdm(range(1, 24)):
     training_set = ori.iloc[int((j - 1) * len(ori_b) / 10):int(j * len(ori_b) / 10)].copy()
     training_set_b = ori_b.iloc[int((j - 1) * len(ori_b) / 10):int(j * len(ori_b) / 10)].copy()
     training_set = training_set.reset_index()
@@ -106,7 +107,12 @@ for j in tqdm(range(1, 11)):
     error_tread.append(median(sum))
     error_tread_r.append(median(sum_b))
 
-error_tread.to_csv('error0.csv')
-error_tread_r.to_csv('error1.csv')
+with open("output0.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerows(error_tread)
+
+with open("output1.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerows(error_tread_r)
 print(error_tread)
 print(error_tread_r)
