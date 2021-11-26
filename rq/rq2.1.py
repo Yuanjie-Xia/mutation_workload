@@ -60,9 +60,9 @@ model.compile(loss="mse", optimizer="adam", metrics=["mape"])
 model1.compile(loss="mse", optimizer="adam", metrics=["mape"])
 error_tread = []
 error_tread_r = []
-for j in tqdm(range(1, 24)):
-    training_set = ori.iloc[int((j - 1) * len(ori_b) / 10):int(j * len(ori_b) / 10)].copy()
-    training_set_b = ori_b.iloc[int((j - 1) * len(ori_b) / 10):int(j * len(ori_b) / 10)].copy()
+for j in tqdm(range(1, 25)):
+    training_set = ori.iloc[0:int(j * len(ori) / 24)].copy()
+    training_set_b = ori_b.iloc[0:int(j * len(ori_b) / 24)].copy()
     training_set = training_set.reset_index()
     training_set_b = training_set_b.reset_index()
     sum = []
